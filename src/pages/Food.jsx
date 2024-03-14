@@ -5,6 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 
 function List() {
+  const [day, setDay] = useState("");
   const [meal, setMealTime] = useState("");
   const [foodType, setFoodType] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -19,20 +20,29 @@ function List() {
     }
   }, []);
 
+  const saveToLocalStorage = (list) => {
+    localStorage.setItem("foodList", JSON.stringify(list));
+  };
+
   const handleSave = () => {
     // Add new food item to the list
     const newItem = {
+      day: day,
       meal: meal,
       foodType: foodType,
       quantity: quantity,
       calories: calories,
     };
-    
-        // Save updated food list to local storage whenever it changes
-        localStorage.setItem("foodList", JSON.stringify([...foodList, newItem]));
-  setFoodList([...foodList, newItem]);
+
+    // Save updated food list to local storage whenever it changes
+    // localStorage.setItem("foodList", JSON.stringify([...foodList, newItem]));
+    // setFoodList([...foodList, newItem]);
+    const updatedList = [...foodList, newItem];
+    saveToLocalStorage(updatedList);
+    setFoodList(updatedList);
 
     // Clear input fields after saving
+    setDay("");
     setMealTime("");
     setFoodType("");
     setQuantity("");
@@ -43,6 +53,7 @@ function List() {
     // Remove item from the list
     const updatedList = [...foodList];
     updatedList.splice(index, 1);
+    saveToLocalStorage(updatedList);
     setFoodList(updatedList);
   };
 
@@ -56,7 +67,19 @@ function List() {
           <Col size="md-12">
             <h2>Add Food Item:</h2>
             <div className="form-group">
-              <label htmlFor="mealInput">Mealtime (Breakfast, Lunch, Snack etc):</label>
+              <label htmlFor="dayInput">Day of Week:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="dayInput"
+                value={day}
+                onChange={(e) => setDay(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="mealInput">
+                Mealtime (Breakfast, Lunch, Snack etc):
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -110,8 +133,11 @@ function List() {
                   className="list-group-item d-flex justify-content-between align-items-center"
                 >
                   <div>
-                    <strong>{item.meal}</strong> - {item.foodType}, Quantity:{" "}
-                    {item.quantity}, calories: {item.calories}
+                    <strong>
+                      <mark>{item.day}</mark>, {item.meal}
+                    </strong>{" "}
+                    - {item.foodType}, Quantity: {item.quantity}, calories:{" "}
+                    {item.calories}
                   </div>
                   <button
                     className="btn btn-danger"
