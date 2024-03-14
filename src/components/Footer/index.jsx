@@ -4,7 +4,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <span>Personal-Website 2023</span>
+      <span>Personal-Website 2024</span>
     </footer>
   );
 }
