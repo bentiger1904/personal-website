@@ -6,12 +6,12 @@ import './style.css';
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div className="container-fluid">
         <Link className="navbar-brand" to="/">
          Journal
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
