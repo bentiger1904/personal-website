@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
-import Navbar from "../components/Navbar";
+//import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Footer from "../components/Footer";
@@ -36,7 +36,6 @@ function Journal() {
 
   return (
     <Wrapper>
-      <Navbar />
       <Hero>
         <h1>Welcome to Your personal Journal</h1>
       </Hero>
@@ -61,7 +60,6 @@ function Journal() {
           </Col>
         </Row>
       </div>
-      <Footer />
     </Wrapper>
   );
 }
