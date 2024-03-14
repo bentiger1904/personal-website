@@ -29,8 +29,11 @@ function List() {
     };
     
         // Save updated shopping list to local storage whenever it changes
-        localStorage.setItem("shoppingList", JSON.stringify([...shoppingList, newItem]));
-  setShoppingList([...shoppingList, newItem]);
+  //       localStorage.setItem("shoppingList", JSON.stringify([...shoppingList, newItem]));
+  // setShoppingList([...shoppingList, newItem]);
+  const updatedList = [...shoppingList, newItem];
+    localStorage.setItem("shoppingList", JSON.stringify(updatedList));
+    setShoppingList(updatedList);
 
     // Clear input fields after saving
     setStore("");
@@ -43,6 +46,7 @@ function List() {
     // Remove item from the list
     const updatedList = [...shoppingList];
     updatedList.splice(index, 1);
+    localStorage.setItem("shoppingList", JSON.stringify(updatedList));
     setShoppingList(updatedList);
   };
 
