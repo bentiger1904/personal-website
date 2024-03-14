@@ -7,6 +7,7 @@ import Journal from './pages/Journal';
 import Exercise from "./pages/Exercise"
 import Tasks from './pages/Tasks';
 import List from "./pages/List"
+import Food from "./pages/Food"
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/tasks" element={<Tasks/>} />
             <Route path="/list" element={<List/>} />
             <Route path="/exercise" element={<Exercise/>} />
+            <Route path="/food" element={<Food/>} />
           </Routes>
         </Wrapper>
         <Footer />
