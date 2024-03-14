@@ -19,11 +19,6 @@ function List() {
     }
   }, []);
 
-  useEffect(() => {
-    // Save updated shopping list to local storage whenever it changes
-    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
-  }, [shoppingList]);
-
   const handleSave = () => {
     // Add new shopping item to the list
     const newItem = {
@@ -32,7 +27,11 @@ function List() {
       quantity: quantity,
       budget: budget,
     };
-    setShoppingList([...shoppingList, newItem]);
+    
+        // Save updated shopping list to local storage whenever it changes
+        localStorage.setItem("shoppingList", JSON.stringify([...shoppingList, newItem]));
+  setShoppingList([...shoppingList, newItem]);
+
     // Clear input fields after saving
     setStore("");
     setFoodType("");
