@@ -10,7 +10,7 @@ const EntryList = ({ entries, onDelete, onEdit }) => {
                 <th>Title</th>
                 <th>Description</th>
                 <th>Date</th>
-                <th>Actions</th> {/* New column for actions */}
+                <th>Actions</th> 
               </tr>
             </thead>
             <tbody>

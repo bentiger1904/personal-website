@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Hero from "../components/Hero";
-import Container from "../components/Container";
+//import Container from "../components/Container";
 //import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import Footer from "../components/Footer";
+//import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
@@ -45,8 +45,7 @@ function Journal() {
             <div className="entry-form">
               <EntryForm
                 onSubmit={addEntry}
-                entryToEdit={entries[editIndex]}
-              />
+                entryToEdit={entries[editIndex]}/>
             </div>
           </Col>
           <Col size="md-6">
@@ -54,8 +53,7 @@ function Journal() {
               <EntryList
                 entries={entries}
                 onDelete={deleteEntry}
-                onEdit={editEntry}
-              />
+                onEdit={editEntry}/>
             </div>
           </Col>
         </Row>
