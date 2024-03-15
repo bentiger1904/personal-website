@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
 //import Container from "../components/Container";
 //import Navbar from "../components/Navbar";
@@ -11,18 +11,24 @@ import EntryList from "../components/Entry/EntryList";
 import "../index.css";
 
 function Journal() {
-  const [entries, setEntries] = useState([]);
+  const localStorageKey = "journalEntries";
+
+  // Retrieve entries from local storage
+  const [entries, setEntries] = useState(() => {
+    const storedEntries = localStorage.getItem(localStorageKey);
+    return storedEntries ? JSON.parse(storedEntries) : [];
+  });
+
+  // track the entry being edited
   const [editIndex, setEditIndex] = useState(null);
 
+  // Update local storage
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(entries));
+  }, [entries]);
+
   const addEntry = (newEntry) => {
-    if (editIndex !== null) {
-      const updatedEntries = [...entries];
-      updatedEntries[editIndex] = newEntry;
-      setEntries(updatedEntries);
-      setEditIndex(null);
-    } else {
-      setEntries([...entries, newEntry]);
-    }
+    setEntries([...entries, newEntry]);
   };
 
   const deleteEntry = (index) => {
@@ -30,8 +36,11 @@ function Journal() {
     setEntries(updatedEntries);
   };
 
-  const editEntry = (index) => {
-    setEditIndex(index);
+  const editEntry = (index, updatedEntry) => {
+    const updatedEntries = [...entries];
+    updatedEntries[index] = updatedEntry;
+    setEntries(updatedEntries);
+    setEditIndex(null); 
   };
 
   return (
@@ -45,7 +54,8 @@ function Journal() {
             <div className="entry-form">
               <EntryForm
                 onSubmit={addEntry}
-                entryToEdit={entries[editIndex]}/>
+                entryToEdit={editIndex !== null ? entries[editIndex] : null} 
+              />
             </div>
           </Col>
           <Col size="md-6">
@@ -53,7 +63,8 @@ function Journal() {
               <EntryList
                 entries={entries}
                 onDelete={deleteEntry}
-                onEdit={editEntry}/>
+                onEdit={(index) => setEditIndex(index)}
+              />
             </div>
           </Col>
         </Row>

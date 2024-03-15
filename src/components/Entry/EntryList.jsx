@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const EntryList = ({ entries, onDelete, onEdit }) => {
+const EntryList = ({ entries, onEdit, onDelete }) => {
     return (
         <div className="table-responsive">
           <table className="table table-striped table-bordered">
@@ -10,7 +10,7 @@ const EntryList = ({ entries, onDelete, onEdit }) => {
                 <th>Title</th>
                 <th>Description</th>
                 <th>Date</th>
-                <th>Actions</th> 
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
