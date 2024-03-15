@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
-import Container from "../components/Container";
+//import Container from "../components/Container";
 //import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
@@ -11,18 +11,24 @@ import EntryList from "../components/Entry/EntryList";
 import "../index.css";
 
 function Journal() {
-  const [entries, setEntries] = useState([]);
+  const localStorageKey = "journalEntries";
+
+  // Retrieve entries from local storage on component mount
+  const [entries, setEntries] = useState(() => {
+    const storedEntries = localStorage.getItem(localStorageKey);
+    return storedEntries ? JSON.parse(storedEntries) : [];
+  });
+
+  // State for tracking the index of the entry being edited
   const [editIndex, setEditIndex] = useState(null);
 
+  // Update local storage whenever entries state changes
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(entries));
+  }, [entries]);
+
   const addEntry = (newEntry) => {
-    if (editIndex !== null) {
-      const updatedEntries = [...entries];
-      updatedEntries[editIndex] = newEntry;
-      setEntries(updatedEntries);
-      setEditIndex(null);
-    } else {
-      setEntries([...entries, newEntry]);
-    }
+    setEntries([...entries, newEntry]);
   };
 
   const deleteEntry = (index) => {
@@ -30,8 +36,11 @@ function Journal() {
     setEntries(updatedEntries);
   };
 
-  const editEntry = (index) => {
-    setEditIndex(index);
+  const editEntry = (index, updatedEntry) => {
+    const updatedEntries = [...entries];
+    updatedEntries[index] = updatedEntry;
+    setEntries(updatedEntries);
+    setEditIndex(null); // Reset editIndex after editing
   };
 
   return (
@@ -45,7 +54,7 @@ function Journal() {
             <div className="entry-form">
               <EntryForm
                 onSubmit={addEntry}
-                entryToEdit={entries[editIndex]}
+                entryToEdit={editIndex !== null ? entries[editIndex] : null} // Pass the entry to edit based on editIndex
               />
             </div>
           </Col>
@@ -54,7 +63,7 @@ function Journal() {
               <EntryList
                 entries={entries}
                 onDelete={deleteEntry}
-                onEdit={editEntry}
+                onEdit={(index) => setEditIndex(index)} // Set the index of the entry being edited
               />
             </div>
           </Col>
