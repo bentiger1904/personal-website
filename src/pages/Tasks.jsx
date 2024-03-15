@@ -1,104 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import Hero from '../components/Hero';
-import Container from '../components/Container';
-import Row from '../components/Row';
-import Col from '../components/Col';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect } from "react";
+import Hero from "../components/Hero";
+import Container from "../components/Container";
+import Row from "../components/Row";
+import Col from "../components/Col";
+import Button from "../components/Button/button";
+import ListItem from "../components/ListItem/index";
 
-function HeaderTask({ task, setTask, description, setDescription, handleChange, handleSubmit }) {
-  return (
-    <Card style={{ marginTop: '20px', border: '1px solid #ccc', borderRadius: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-      <Card.Header>Task organizer:</Card.Header>
-      <Card.Body>
-        <Card.Title>Write your Task here!</Card.Title>
-        <Card.Text>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <input
-              type="text"
-              style={{ borderRadius: '3px', border: '1px solid #ccc', padding: '8px 12px', marginBottom: '10px' }}
-              placeholder="Enter task..."
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
-            />
-            <textarea
-              style={{ borderRadius: '3px', border: '1px solid #ccc', padding: '8px 12px', resize: 'none', height: '100px' }}
-              placeholder="Enter task description..."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <button type="submit" style={{ marginTop: '10px' }} className="btn btn-primary" onClick={handleSubmit}>
-              Add Task
-            </button>
-          </div>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  );
-}
-
-function Tasks() {
-  const [task, setTask] = useState('');
-  const [description, setDescription] = useState('');
-  const [tasksList, setTasksList] = useState([]);
+function Task() {
+  const [task, setTask] = useState("");
+  const [taskDescription, setTaskDescription] = useState("");
+  const [taskList, setTaskList] = useState([]);
+  const [editIndex, setEditIndex] = useState(null); // Track the index of the task being edited
 
   useEffect(() => {
-    console.log('Fetching tasks from local storage');
-    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-    if (storedTasks) {
-      console.log('Tasks retrieved:', storedTasks);
-      setTasksList(storedTasks);
+    // Load saved task list from local storage on component mount
+    const savedTaskList = JSON.parse(localStorage.getItem("taskList"));
+    if (savedTaskList) {
+      setTaskList(savedTaskList);
     }
   }, []);
 
-  useEffect(() => {
-    console.log('Saving tasks to local storage');
-    localStorage.setItem('tasks', JSON.stringify(tasksList));
-  }, [tasksList]);
-
-  const handleSubmit = () => {
-    if (task.trim() !== '') {
-      const newTask = {
-        task: task,
-        description: description,
-      };
-      setTasksList([...tasksList, newTask]);
-      setTask('');
-      setDescription('');
+  const handleSave = () => {
+    // If editIndex is not null, it means we are editing an existing task
+    if (editIndex !== null) {
+      // Update the existing task in the list
+      const updatedList = [...taskList];
+      updatedList[editIndex] = { task, taskDescription };
+      setTaskList(updatedList);
+      setEditIndex(null); // Reset editIndex after updating
+    } else {
+      // Add new task to the list
+      const newTask = { task, taskDescription };
+      setTaskList([...taskList, newTask]);
     }
+
+    // Save updated task list to local storage whenever it changes
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+
+    // Clear input fields after saving
+    setTask("");
+    setTaskDescription("");
+  };
+
+  const handleEdit = (index) => {
+    // Set editIndex to the index of the task being edited
+    setEditIndex(index);
+
+    // Populate task and taskDescription fields with the current values
+    setTask(taskList[index].task);
+    setTaskDescription(taskList[index].taskDescription);
+  };
+
+  const handleDelete = (index) => {
+    // Remove task from the list
+    const updatedList = [...taskList];
+    updatedList.splice(index, 1);
+    setTaskList(updatedList);
+
+    // Save updated task list to local storage whenever it changes
+    localStorage.setItem("taskList", JSON.stringify(updatedList));
   };
 
   return (
     <div>
       <Hero>
-        <h1 className="text-center text-white">Welcome to Your personal Task Planner!</h1>
+        <h1>Welcome to Your Task List!</h1>
       </Hero>
       <Container>
         <Row>
           <Col size="md-6">
-            <HeaderTask
-              task={task}
-              setTask={setTask}
-              description={description}
-              setDescription={setDescription}
-              handleSubmit={handleSubmit}
+            <h2 style={{textAlign:"center"}}>Add/Edit Task:</h2>
+            <div className="form-group">
+              <label style={{fontSize:"12"}} htmlFor="taskInput">Task:</label>
+              <input
+                style={{fontSize:"12"}}
+                type="text"
+                className="form-control"
+                id="taskInput"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="taskDescriptionInput">Task Description:</label>
+              <textarea
+                className="form-control"
+                id="taskDescriptionInput"
+                rows="3"
+                value={taskDescription}
+                onChange={(e) => setTaskDescription(e.target.value)}
+              ></textarea>
+            </div>
+            <Button
+              label={editIndex !== null ? "Update" : "Save"}
+              style={{
+                backgroundcolor: "blueviolet",
+                color: "white",
+                border: "none",
+                padding: "5px 10px",
+                marginleft: "15px",
+                cursor: "pointer",
+              }}
+              onClick={handleSave}
+              type="primary"
             />
           </Col>
           <Col size="md-6">
-            <Card>
-              <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                <h2 className="card-title text-center">Tasks:</h2>
-                <ul className="list-group">
-                  {tasksList.map((task, index) => (
-                    <li key={index} className="list-group-item">
-                      <div>
-                        <strong>{task.task}</strong>
-                        <p>{task.description}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
+            <h2>Task List:</h2>
+            <ul className="list-group">
+              {taskList.map((taskItem, index) => (
+                <ListItem
+                  key={index}
+                  taskItem={taskItem}
+                  index={index}
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
+              ))}
+            </ul>
           </Col>
         </Row>
       </Container>
@@ -106,7 +125,137 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default Task;
+//   return (
+//     <div>
+//       <Hero>
+//         <h1>Welcome to Your Task List!</h1>
+//       </Hero>
+//       <Container>
+//         <Row>
+//           <Col size="md-6">
+//             <h2>Add/Edit Task:</h2>
+//             {/* Your existing code... */}
+//           </Col>
+//           <Col size="md-6">
+//             <h2>Task List:</h2>
+//             <ul className="list-group">
+//               {taskList.map((taskItem, index) => (
+//                 <li
+//                   key={index}
+//                   className={`list-group-item ${styles.listItem}`} // Use CSS module class
+//                 >
+//                   <div>
+//                     <span className={styles.task}>{taskItem.task}</span>
+//                     <span className={styles.taskDescription}>
+//                       - {taskItem.taskDescription}
+//                     </span>
+//                   </div>
+//                   <div className={styles.actions}>
+//                     <Button
+//                       onClick={() => handleEdit(index)}
+//                       label="Edit"
+//                       type="primary"
+//                     />
+//                     <Button
+//                       onClick={() => handleDelete(index)}
+//                       label="Delete"
+//                       type="danger"
+//                     />
+//                   </div>
+//                 </li>
+//               ))}
+//             </ul>
+//           </Col>
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// }
+
+// export default Task;
+
+//   return (
+//     <div>
+//       <Hero>
+//         <h1>Welcome to Your Task List!</h1>
+//       </Hero>
+//       <Container>
+//         <Row>
+//           <Col size="md-6">
+//             <h2>Add/Edit Task:</h2>
+//             <div className="form-group">
+//               <label htmlFor="taskInput">Task:</label>
+//               <input
+//                 type="text"
+//                 className="form-control"
+//                 id="taskInput"
+//                 value={task}
+//                 onChange={(e) => setTask(e.target.value)}
+//               />
+//             </div>
+//             <div className="form-group">
+//               <label htmlFor="taskDescriptionInput">Task Description:</label>
+//               <textarea
+//                 className="form-control"
+//                 id="taskDescriptionInput"
+//                 rows="3"
+//                 value={taskDescription}
+//                 onChange={(e) => setTaskDescription(e.target.value)}
+//               ></textarea>
+//             </div>
+//             <button className="btn btn-primary"
+//             style={{
+//             backgroundColor: 'blueviolet',
+//             textAlign: 'center',
+//             marginTop: "10px",
+//             }}
+//             onClick={handleSave}>
+//               {editIndex !== null ? "Update" : "Save"}
+//             </button>
+//           </Col>
+//           <Col size="md-6">
+//             <h2>Task List:</h2>
+//             <ul className="list-group">
+//               {taskList.map((taskItem, index) => (
+//                 <li
+//                   key={index}
+//                   className="list-group-item d-flex justify-content-between align-items-center"
+//                   style={{marginTop:"25px"}}
+//                 >
+//                   <div>
+//                     <strong>{taskItem.task}</strong> - {taskItem.taskDescription}
+//                   </div>
+//                   <div>
+//                     <button
+//                       className="btn btn-primary"
+//                       onClick={() => handleEdit(index)}
+//                     >
+//                       Edit
+//                     </button>
+//                     <button
+//                       className="btn btn-danger ml-2"
+//                       style={{
+//                         backgroundColor: 'blueviolet',
+//                         textAlign: 'center',
+//                         margintop: "10px",
+//                       }}
+//                       onClick={() => handleDelete(index)}
+//                     >
+//                       Delete
+//                     </button>
+//                   </div>
+//                 </li>
+//               ))}
+//             </ul>
+//           </Col>
+//         </Row>
+//       </Container>
+//     </div>
+//   );
+// }
+
+// export default Task;
 
 
 
