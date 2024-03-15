@@ -1,0 +1,39 @@
+.button {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: rgb(73, 226, 43);
+}
+
+.btn-danger {
+  background-color: blueviolet;
+  margin-left: 20px;
+}
+
+
+
+  
+  .taskDescription {
+    margin-left: 10px;
+  }
+  
+  .actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .editButton,
+
+  .btn-danger{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  

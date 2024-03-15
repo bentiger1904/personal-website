@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 //import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import Footer from "../components/Footer";
+//import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
@@ -13,16 +13,16 @@ import "../index.css";
 function Journal() {
   const localStorageKey = "journalEntries";
 
-  // Retrieve entries from local storage on component mount
+  // Retrieve entries from local storage
   const [entries, setEntries] = useState(() => {
     const storedEntries = localStorage.getItem(localStorageKey);
     return storedEntries ? JSON.parse(storedEntries) : [];
   });
 
-  // State for tracking the index of the entry being edited
+  // track the entry being edited
   const [editIndex, setEditIndex] = useState(null);
 
-  // Update local storage whenever entries state changes
+  // Update local storage
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(entries));
   }, [entries]);
@@ -40,7 +40,7 @@ function Journal() {
     const updatedEntries = [...entries];
     updatedEntries[index] = updatedEntry;
     setEntries(updatedEntries);
-    setEditIndex(null); // Reset editIndex after editing
+    setEditIndex(null); 
   };
 
   return (
@@ -54,7 +54,7 @@ function Journal() {
             <div className="entry-form">
               <EntryForm
                 onSubmit={addEntry}
-                entryToEdit={editIndex !== null ? entries[editIndex] : null} // Pass the entry to edit based on editIndex
+                entryToEdit={editIndex !== null ? entries[editIndex] : null} 
               />
             </div>
           </Col>
@@ -63,7 +63,7 @@ function Journal() {
               <EntryList
                 entries={entries}
                 onDelete={deleteEntry}
-                onEdit={(index) => setEditIndex(index)} // Set the index of the entry being edited
+                onEdit={(index) => setEditIndex(index)}
               />
             </div>
           </Col>

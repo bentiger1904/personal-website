@@ -1,0 +1,29 @@
+.li.task-item {
+    box-sizing: border-box;
+    display: block;
+    float: none;
+    line-height: 24px;
+    position: relative;
+    z-index: auto;
+    width: 100%; /* Ensures the li takes up full width */
+    padding: 10px; /* Add padding to increase size */
+    margin-bottom: 10px; /* Add margin for spacing between items */
+  }
+
+  .listItem {
+    margin-top: 25px;
+  }
+  
+  .task {
+    font-weight: bold;
+  }
+  
+  .taskDescription {
+    margin-left: 10px;
+  }
+  
+  .actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
