@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
-//import Container from "../components/Container";
-//import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
-//import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
+import { Container } from 'react-bootstrap';
 import "../index.css";
+
 
 function Journal() {
   const localStorageKey = "journalEntries";
@@ -48,18 +47,22 @@ function Journal() {
       <Hero>
         <h1>Welcome to Your personal Journal</h1>
       </Hero>
+      <div className="container">
       <div className="content">
+      <Container>
         <Row>
-          <Col size="md-6">
+          <Col size="md-8">
             <div className="entry-form">
+            <div className="entry-form-container">
               <EntryForm
                 onSubmit={addEntry}
                 entryToEdit={editIndex !== null ? entries[editIndex] : null} 
               />
             </div>
+            </div>
           </Col>
-          <Col size="md-6">
-            <div className="entry-list">
+          <Col size="md-12">
+            <div className="entry-list-container">
               <EntryList
                 entries={entries}
                 onDelete={deleteEntry}
@@ -68,6 +71,8 @@ function Journal() {
             </div>
           </Col>
         </Row>
+        </Container>
+      </div>
       </div>
     </Wrapper>
   );
