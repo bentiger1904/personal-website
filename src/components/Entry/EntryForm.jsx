@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 
 const EntryForm = ({ onSubmit, entryToEdit }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     if (entryToEdit) {
@@ -17,14 +17,16 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({ title, description, date });
-    setTitle('');
-    setDescription('');
-    setDate('');
+    setTitle("");
+    setDescription("");
+    setDate("");
   };
 
   return (
     <div className="entry-form-container">
-      <h2 className="entry-form-title">{entryToEdit ? 'Edit Entry' : 'Add New Entry'}</h2>
+      <h2 className="entry-form-title">
+        {entryToEdit ? "Edit Entry" : "Add New Entry"}
+      </h2>
       <form className="entry-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="title">Title:</label>
@@ -58,7 +60,9 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
             required
           />
         </div>
-        <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button>
+        <button className="form-button" type="submit">
+          {entryToEdit ? "Edit Entry" : "Add Entry"}
+        </button>
       </form>
     </div>
   );

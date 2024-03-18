@@ -11,7 +11,7 @@ import "../index.css";
 
 function Journal() {
   const localStorageKey = "journalEntries";
-  const [quote, setQuote] = useState('');
+  const [quote, setQuote] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -33,13 +33,13 @@ function Journal() {
   useEffect(() => {
     const fetchQuote = async () => {
       try {
-        const response = await axios.get('https://favqs.com/api/qotd');
+        const response = await axios.get("https://favqs.com/api/qotd");
         setQuote(response.data.quote.body);
         setLoading(false);
         setError(null);
       } catch (error) {
         setLoading(false);
-        setError('Failed to fetch quote');
+        setError("Failed to fetch quote");
       }
     };
 
@@ -66,13 +66,7 @@ function Journal() {
     <Wrapper>
       <Hero>
         <h1>Welcome to Your personal Journal</h1>
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p>{error}</p>
-        ) : (
-          <p>{quote}</p>
-        )}
+        {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>}
       </Hero>
       <div className="container">
         <div className="content">
@@ -83,7 +77,20 @@ function Journal() {
                   <div className="entry-form-container">
                     <EntryForm
                       onSubmit={addEntry}
-                      entryToEdit={editIndex !== null ? entries[editIndex] : null}
+                      entryToEdit={
+                        editIndex !== null ? entries[editIndex] : null
+                      }
+                    />
+                  </div>
+                </div>
+              </Col>
+              <Col size="md-12">
+                <div className="entry-list">
+                  <div className="entry-list-container">
+                    <EntryList
+                      entries={entries}
+                      onDelete={deleteEntry}
+                      onEdit={(index) => setEditIndex(index)}
                     />
                   </div>
                 </div>

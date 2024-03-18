@@ -92,13 +92,15 @@ label {
   font-weight: bold;
   text-align: center;
 }
-
+.col-md-12 {
+  background-color: white;
+  padding: "10px";
+}
 .form-input,
 .form-textarea {
   width: 100%;
   height: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 8px;
 }
 
