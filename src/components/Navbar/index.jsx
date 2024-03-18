@@ -64,6 +64,17 @@ function Navbar() {
               >
                 Exercise
               </NavLink>
+              </li>
+              <li className="nav-item">
+              <NavLink
+                to="/food"
+                end
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active' : 'nav-link'
+                }
+              >
+                Food
+              </NavLink>
             </li>
           </ul>
         </div>
