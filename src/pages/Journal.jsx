@@ -1,28 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
-//import Container from "../components/Container";
-//import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Col from "../components/Col";
-//import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
+import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
+import axios from 'axios';
 import "../index.css";
 
 function Journal() {
-  const [entries, setEntries] = useState([]);
+  const localStorageKey = "journalEntries";
+  const [quote, setQuote] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Retrieve entries from local storage
+  const [entries, setEntries] = useState(() => {
+    const storedEntries = localStorage.getItem(localStorageKey);
+    return storedEntries ? JSON.parse(storedEntries) : [];
+  });
+
+  // track the entry being edited
   const [editIndex, setEditIndex] = useState(null);
 
+  // Update local storage
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(entries));
+  }, [entries]);
+
+  // Fetch quote of the day from the API
+  useEffect(() => {
+    const fetchQuote = async () => {
+      try {
+        const response = await axios.get('https://favqs.com/api/qotd');
+        setQuote(response.data.quote.body);
+        setLoading(false);
+        setError(null);
+      } catch (error) {
+        setLoading(false);
+        setError('Failed to fetch quote');
+      }
+    };
+
+    fetchQuote();
+  }, []);
+
   const addEntry = (newEntry) => {
-    if (editIndex !== null) {
-      const updatedEntries = [...entries];
-      updatedEntries[editIndex] = newEntry;
-      setEntries(updatedEntries);
-      setEditIndex(null);
-    } else {
-      setEntries([...entries, newEntry]);
-    }
+    setEntries([...entries, newEntry]);
   };
 
   const deleteEntry = (index) => {
@@ -30,33 +55,42 @@ function Journal() {
     setEntries(updatedEntries);
   };
 
-  const editEntry = (index) => {
-    setEditIndex(index);
+  const editEntry = (index, updatedEntry) => {
+    const updatedEntries = [...entries];
+    updatedEntries[index] = updatedEntry;
+    setEntries(updatedEntries);
+    setEditIndex(null);
   };
 
   return (
     <Wrapper>
       <Hero>
         <h1>Welcome to Your personal Journal</h1>
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <p>{quote}</p>
+        )}
       </Hero>
-      <div className="content">
-        <Row>
-          <Col size="md-6">
-            <div className="entry-form">
-              <EntryForm
-                onSubmit={addEntry}
-                entryToEdit={entries[editIndex]}/>
-            </div>
-          </Col>
-          <Col size="md-6">
-            <div className="entry-list">
-              <EntryList
-                entries={entries}
-                onDelete={deleteEntry}
-                onEdit={editEntry}/>
-            </div>
-          </Col>
-        </Row>
+      <div className="container">
+        <div className="content">
+          <Container>
+            <Row>
+              <Col size="md-8">
+                <div className="entry-form">
+                  <div className="entry-form-container">
+                    <EntryForm
+                      onSubmit={addEntry}
+                      entryToEdit={editIndex !== null ? entries[editIndex] : null}
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
     </Wrapper>
   );
