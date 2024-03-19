@@ -9,6 +9,7 @@ import Wrapper from "../components/Wrapper";
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
+import 'animate.css';
 
 function Journal() {
   const [entries, setEntries] = useState([]);
@@ -37,7 +38,7 @@ function Journal() {
   return (
     <Wrapper>
       <Hero>
-        <h1>Welcome to Your personal Journal</h1>
+        <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
       </Hero>
       <div className="content">
         <Row>

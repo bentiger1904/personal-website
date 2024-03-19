@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import 'animate.css';
 
 function List() {
   const [day, setDay] = useState("");
@@ -60,7 +61,7 @@ function List() {
   return (
     <div>
       <Hero>
-        <h1>Welcome to Your Food Log!</h1>
+        <h1 class="animate__animated animate__zoomIn">Welcome to Your Food Log!</h1>
       </Hero>
       <Container>
         <Row>
