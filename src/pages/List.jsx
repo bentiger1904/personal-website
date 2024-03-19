@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import 'animate.css';
 
 function List() {
   const [store, setStore] = useState("");
@@ -53,12 +54,12 @@ function List() {
   return (
     <div>
       <Hero>
-        <h1>Welcome to Your personal Shopping List!</h1>
+        <h1 class="animate__animated animate__backInUp">Welcome to Your personal Shopping List!</h1>
       </Hero>
       <Container>
         <Row>
           <Col size="md-12">
-            <h2>Add Shopping Item:</h2>
+            <h2 >Add Shopping Item:</h2>
             <div className="form-group">
               <label htmlFor="storeInput">Store:</label>
               <input
