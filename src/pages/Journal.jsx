@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
+import 'animate.css';
 
 
 function Journal() {
@@ -45,8 +46,8 @@ function Journal() {
   return (
     <Wrapper>
       <Hero>
-        <h1>Welcome to Your personal Journal</h1>
-        {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
+        <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
+         {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
       </Hero>
       <div className="container">
       <div className="content">

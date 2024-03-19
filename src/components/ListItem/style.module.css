@@ -1,4 +1,4 @@
-.li.task-item {
+.styles.task {
     box-sizing: border-box;
     display: block;
     float: none;
@@ -8,6 +8,7 @@
     width: 100%; /* Ensures the li takes up full width */
     padding: 10px; /* Add padding to increase size */
     margin-bottom: 10px; /* Add margin for spacing between items */
+    background-color: bisque;
   }
 
   .listItem {

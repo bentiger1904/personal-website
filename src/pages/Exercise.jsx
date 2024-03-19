@@ -3,12 +3,13 @@ import Hero from '../components/Hero';
 import Container from '../components/Container';
 import Row from '../components/Row';
 import Col from '../components/Col';
+import 'animate.css';
 
 function Exercise() {
     return (
       <div>
         <Hero>
-            <h1>Welcome to Your personal Exercise Tracker!
+            <h1 class="animate__animated animate__backInRight">Welcome to Your personal Exercise Tracker!
             </h1>
         </Hero>
         <Row>
