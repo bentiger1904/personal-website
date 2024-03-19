@@ -3,9 +3,9 @@ import Hero from "../components/Hero";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Wrapper from "../components/Wrapper";
+import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
-import { Container } from 'react-bootstrap';
 import "../index.css";
 import 'animate.css';
 
@@ -47,6 +47,7 @@ function Journal() {
     <Wrapper>
       <Hero>
         <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
+         {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
       </Hero>
       <div className="container">
       <div className="content">

@@ -10,13 +10,16 @@ body  {
   color: #333;
 }
 
-.container {
-  max-width: 1200px;
+.container { 
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+} 
+.entry-list-container {
   margin: 0 auto;
   padding: 50px;
   
 }
-
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -93,7 +96,6 @@ label {
   font-weight: bold;
   text-align: center;
 }
-
 .form-input,
 .form-textarea {
   width: 100%;

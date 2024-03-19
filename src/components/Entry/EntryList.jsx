@@ -1,5 +1,5 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 const EntryList = ({ entries, onEdit, onDelete }) => {
   return (
