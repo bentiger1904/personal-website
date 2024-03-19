@@ -1,8 +1,36 @@
-# React + Vite
+# **Personal Website**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+   ![Github license](https://img.shields.io/badge/license-MIT-yellowgreen.svg)
 
-Currently, two official plugins are available:
+  ## Description
+  - As a user I want to have one place that I can use as my personal journal and planner, food tracker, notebook.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  ## Table of Contents
+
+  - [License](#license)
+  - [Installation](#installation-instructions)
+  - [Usage](#usage-information)
+  - [Contribution](#contribution-guidelines)
+  - [Tests](#test-instructions)
+  - [Questions](#questions)
+
+  ## Installation Instructions
+  - run 'npm install'
+
+  ## Usage Information
+  - 
+
+  ## Contribution Guidelines
+  - Group 16: Artur Piasecki, Ben Mahoney, David Brooks, Elena Golovko
+
+  ## Test Instructions
+  - N/A
+
+  ## Questions
+
+  - If you have any questions about my repo feel free to email me at . 
+  - You can find more of my work at (https://github.com/bentiger1904/).
+  
+
+  ## License
+  - MIT
