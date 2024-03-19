@@ -93,6 +93,7 @@ function WorkoutTrackerApp() {
         </td>
         <td>
           <button
+            style={{backgroundColor: "#ff66ff"}}
             type="button"
             className="btn-danger"
             onClick={() => deleteEntry(index)}
@@ -146,7 +147,7 @@ function WorkoutTrackerApp() {
                         });
                       }}
                     >
-                      Add Entry <FaPlusCircle />
+                      Add Entry <FaPlusCircle className="mb-1"/>
                     </span>
                   </td>
                 </tr>
