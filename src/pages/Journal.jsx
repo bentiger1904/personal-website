@@ -1,38 +1,82 @@
-import React from 'react';
-import Hero from '../components/Hero';
-import Container from '../components/Container';
-import Row from '../components/Row';
-import Col from '../components/Col';
+import React, { useState, useEffect } from 'react';
+import Hero from "../components/Hero";
+import Row from "../components/Row";
+import Col from "../components/Col";
+import Wrapper from "../components/Wrapper";
+import EntryForm from "../components/Entry/EntryForm";
+import EntryList from "../components/Entry/EntryList";
+import { Container } from 'react-bootstrap';
+import "../index.css";
+import 'animate.css';
+
 
 function Journal() {
-    return (
-      <div>
-        <Hero>
-            <h1>Welcome to Your personal Journal
-            </h1>
-        </Hero>
+  const localStorageKey = "journalEntries";
+
+  // Retrieve entries from local storage
+  const [entries, setEntries] = useState(() => {
+    const storedEntries = localStorage.getItem(localStorageKey);
+    return storedEntries ? JSON.parse(storedEntries) : [];
+  });
+
+  // track the entry being edited
+  const [editIndex, setEditIndex] = useState(null);
+
+  // Update local storage
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(entries));
+  }, [entries]);
+
+  const addEntry = (newEntry) => {
+    setEntries([...entries, newEntry]);
+  };
+
+  const deleteEntry = (index) => {
+    const updatedEntries = entries.filter((entry, i) => i !== index);
+    setEntries(updatedEntries);
+  };
+
+  const editEntry = (index, updatedEntry) => {
+    const updatedEntries = [...entries];
+    updatedEntries[index] = updatedEntry;
+    setEntries(updatedEntries);
+    setEditIndex(null); 
+  };
+
+  return (
+    <Wrapper>
+      <Hero>
+        <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
+      </Hero>
+      <div className="container">
+      <div className="content">
+      <Container>
         <Row>
+          <Col size="md-8">
+            <div className="entry-form">
+            <div className="entry-form-container">
+              <EntryForm
+                onSubmit={addEntry}
+                entryToEdit={editIndex !== null ? entries[editIndex] : null} 
+              />
+            </div>
+            </div>
+          </Col>
           <Col size="md-12">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              aliquet diam tortor, id consequat mauris ullamcorper eu. Orci
-              varius natoque penatibus et magnis dis parturient montes, nascetur
-              ridiculus mus. Pellentesque et dui id justo finibus sollicitudin
-              at et metus. Ut feugiat tellus nec metus commodo, sed suscipit
-              nisi gravida. Duis eget vestibulum quam, ut porttitor sem. Donec
-              sagittis mi sollicitudin turpis semper, et interdum risus
-              lobortis. Vestibulum suscipit nunc non egestas tristique. Proin
-              hendrerit efficitur malesuada. Mauris lorem urna, sodales accumsan
-              quam non, tristique tempor erat. Nullam non sem facilisis, tempus
-              tortor sit amet, volutpat nisl. Ut et turpis non nunc maximus
-              mollis a vitae tortor. Pellentesque mattis risus ac quam laoreet
-              cursus. Praesent suscipit orci neque, vestibulum tincidunt augue
-              tincidunt non. Duis consequat mattis tortor vitae mattis.
-            </p>
-            </Col>
+            <div className="entry-list-container">
+              <EntryList
+                entries={entries}
+                onDelete={deleteEntry}
+                onEdit={(index) => setEditIndex(index)}
+              />
+            </div>
+          </Col>
         </Row>
-    </div>
-);
+        </Container>
+      </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 export default Journal;

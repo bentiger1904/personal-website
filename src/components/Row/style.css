@@ -1,0 +1,8 @@
+.row {
+margin-top: 10px;
+
+}
+.animate__animated.animate__backInUp {
+
+    --animate-duration: 2s;
+}

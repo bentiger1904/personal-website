@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
@@ -6,6 +7,8 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import "../index.css";
+import 'animate.css';
+
 
 function WorkoutTrackerApp() {
   function UseLocalStorage(key, initialValue) {
@@ -46,6 +49,7 @@ function WorkoutTrackerApp() {
 
   const addRow = (data, index) => {
     return (
+
       <tr key={index} className="tracker__row">
         <td>
           <input
@@ -102,10 +106,13 @@ function WorkoutTrackerApp() {
 
   return (
     <>
-      <Hero>
-        <h1>Welcome to Your personal Exercise Tracker!</h1>
-      </Hero>
-      <Container>
+
+        <Hero>
+            <h1 class="animate__animated animate__backInRight">Welcome to Your personal Exercise Tracker!
+            </h1>
+        </Hero>
+    <Container>
+
         <Row>
           <Col size="md-12">
             <table className="table">
