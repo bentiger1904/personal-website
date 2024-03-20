@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
 import Row from "../components/Row";
 import Col from "../components/Col";
-//import Wrapper from "../components/Wrapper";
+import Wrapper from "../components/Wrapper";
 import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
@@ -44,7 +44,7 @@ function Journal() {
   };
 
   return (
-    <div className="journal-background">
+    <div className="jourdnal-backgroun">
       <Hero>
         <h1 className="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
       </Hero>
