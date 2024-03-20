@@ -6,9 +6,8 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
-import backgroundImage from "../notesBackground2.jpeg";
 import 'animate.css';
-import TaskBackground from "../components/backroundTask"
+
 
 function Task() {
   const [task, setTask] = useState("");
