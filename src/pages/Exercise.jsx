@@ -1,13 +1,13 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-// import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
+import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import "../index.css";
-// import 'animate.css';
+import 'animate.css';
 
 
 function WorkoutTrackerApp() {

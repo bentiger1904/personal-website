@@ -6,9 +6,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
-
 import 'animate.css';
-
 
 function Task() {
   const [task, setTask] = useState("");
@@ -70,10 +68,10 @@ function Task() {
   <Hero backgroundImage={backgroundImage}>
         <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
       </Hero >
-      <Container >
+      <Container style={{ backgroundColor: '#deb887' }}>
         <Row>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#9CF6F6",borderRadius:"5px"}}>Add/Edit Task:</h2>
+            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Add/Edit Task:</h2>
             <div className="form-group" >
               <label style={{fontSize:"12"}} htmlFor="taskInput">Task:</label>
               <input
@@ -98,10 +96,11 @@ function Task() {
             <Button
               label={editIndex !== null ? "Update" : "Save"}
               style={{
+                backgroundColor: "#ffe4c4",
                 color: "white",
                 border: "none",
                 padding: "5px 10px",
-                marginleft: "15px",
+                marginLeft: "15px",
                 cursor: "pointer",
               }}
               onClick={handleSave}
@@ -109,7 +108,7 @@ function Task() {
             />
           </Col>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#9CF6F6",borderRadius:"5px"}}>Task List:</h2>
+            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Task List:</h2>
             <ul className="list-group" >
               {taskList.map((taskItem, index) => (
                 <ListItem
