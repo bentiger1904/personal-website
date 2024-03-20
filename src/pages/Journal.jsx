@@ -44,7 +44,7 @@ function Journal() {
   };
 
   return (
-    <div className="jourdnal-backgroun">
+    <div className="journal-background">
       <Hero>
         <h1 className="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
       </Hero>
