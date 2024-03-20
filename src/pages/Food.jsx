@@ -63,7 +63,7 @@ function List() {
       <Hero>
         <h1 class="animate__animated animate__zoomIn">Welcome to Your Food Log!</h1>
       </Hero>
-      <Container>
+      <Container style={{backgroundColor: '#f5d76e'}}>
         <Row>
           <Col size="md-12">
             <h2>Add Food Item:</h2>
@@ -119,7 +119,7 @@ function List() {
                 onChange={(e) => setCalories(e.target.value)}
               />
             </div>
-            <button className="btn btn-primary" onClick={handleSave}>
+            <button className="btn btn-primary" style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: 'white' }} onClick={handleSave}>
               Save
             </button>
           </Col>
@@ -142,6 +142,7 @@ function List() {
                   </div>
                   <button
                     className="btn btn-danger"
+                    style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: '#white' }}
                     onClick={() => handleDelete(index)}
                   >
                     Delete
