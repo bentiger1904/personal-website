@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
 import Row from "../components/Row";
 import Col from "../components/Col";
-//import Wrapper from "../components/Wrapper";
+import Wrapper from "../components/Wrapper";
 import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
-// import 'animate.css';
+import 'animate.css';
 
 
 function Journal() {
