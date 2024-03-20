@@ -56,7 +56,7 @@ function List() {
       <Hero>
         <h1 class="animate__animated animate__backInUp">Welcome to Your personal Shopping List!</h1>
       </Hero>
-      <Container>
+      <Container style={{backgroundColor: '#deb887'}}>
         <Row>
           <Col size="md-12">
             <h2 >Add Shopping Item:</h2>
@@ -100,7 +100,7 @@ function List() {
                 onChange={(e) => setBudget(e.target.value)}
               />
             </div>
-            <button className="btn btn-primary" onClick={handleSave}>
+            <button className="btn btn-primary" style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }} onClick={handleSave}>
               Save
             </button>
           </Col>
@@ -120,6 +120,7 @@ function List() {
                   </div>
                   <button
                     className="btn btn-danger"
+                    style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }}
                     onClick={() => handleDelete(index)}
                   >
                     Delete

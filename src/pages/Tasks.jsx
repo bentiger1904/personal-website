@@ -68,10 +68,10 @@ function Task() {
       <Hero backgroundImage="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzQ3YW5oZnd5bXoydjh0bXB0MG83N3d4NDNyZnZhcnhkdGZxOGJmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ql4RdCMLHEsBAfcIY1/giphy.gif">
         <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
       </Hero >
-      <Container >
+      <Container style={{ backgroundColor: '#deb887' }}>
         <Row>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#9CF6F6",borderRadius:"5px"}}>Add/Edit Task:</h2>
+            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Add/Edit Task:</h2>
             <div className="form-group" >
               <label style={{fontSize:"12"}} htmlFor="taskInput">Task:</label>
               <input
@@ -96,11 +96,11 @@ function Task() {
             <Button
               label={editIndex !== null ? "Update" : "Save"}
               style={{
-                backgroundcolor: "blueviolet",
+                backgroundColor: "#ffe4c4",
                 color: "white",
                 border: "none",
                 padding: "5px 10px",
-                marginleft: "15px",
+                marginLeft: "15px",
                 cursor: "pointer",
               }}
               onClick={handleSave}
@@ -108,7 +108,7 @@ function Task() {
             />
           </Col>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#9CF6F6",borderRadius:"5px"}}>Task List:</h2>
+            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Task List:</h2>
             <ul className="list-group" >
               {taskList.map((taskItem, index) => (
                 <ListItem

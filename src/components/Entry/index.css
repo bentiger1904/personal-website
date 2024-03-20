@@ -145,7 +145,7 @@ background-color: beige;
   }
   
   .journal-background {
-    background-image: url('public/wp6661118-stationary-wallpapers.jpg');
+    background-image: url('/wp6661118-stationary-wallpapers.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
