@@ -6,7 +6,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
-import 'animate.css';
+// import 'animate.css';
 
 function Task() {
   const [task, setTask] = useState("");
