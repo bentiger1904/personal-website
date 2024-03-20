@@ -41,7 +41,7 @@ function Navbar() {
                   isActive ? 'nav-link active' : 'nav-link'
                 }
               >
-                List
+                Shopping
               </NavLink>
             </li>
             <li className="nav-item">
