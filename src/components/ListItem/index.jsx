@@ -1,17 +1,16 @@
 import React from "react";
+
 import styles from "../ListItem/style.module.css"; // Import CSS module
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
-
-const ListItem = ({ taskItem, index, handleEdit, handleDelete }) => {
+function ListItem({ taskItem, index, handleEdit, handleDelete }) {
   return (
-    <li key={index} className={`list-group-item ${styles.listItem}`}>
+    <li className="list-group-item d-flex justify-content-between align-items-center">
       <div>
-        <span className={styles.task}>{taskItem.task}</span>
-        <span className={styles.taskDescription}>
-          - {taskItem.taskDescription}
-        </span>
+        <strong>{taskItem.task}</strong>
+        <p>{taskItem.taskDescription}</p>
       </div>
+
       <div className={styles.actions}>
       <button
             style={{ backgroundColor: "#ec8027" }}
@@ -23,11 +22,17 @@ const ListItem = ({ taskItem, index, handleEdit, handleDelete }) => {
           </button>
         {/* <button
           className={`btn btn-primary ${styles.editButton}`}
+
+      <div>
+        <button
+          className="btn btn-sm btn-info mr-2"
+
           onClick={() => handleEdit(index)}
         >
           Edit
         </button> */}
         <button
+
             style={{ backgroundColor: "#db2828" }}
             type="button"
             className="btn-danger"
@@ -37,6 +42,9 @@ const ListItem = ({ taskItem, index, handleEdit, handleDelete }) => {
           </button>
         {/* <button
           className={`btn btn-danger ml-2 ${styles.deleteButton}`}
+
+          className="btn btn-sm btn-danger"
+
           onClick={() => handleDelete(index)}
         >
           Delete
@@ -44,6 +52,6 @@ const ListItem = ({ taskItem, index, handleEdit, handleDelete }) => {
       </div>
     </li>
   );
-};
+}
 
 export default ListItem;

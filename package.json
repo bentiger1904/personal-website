@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "ajax": "^0.0.4",
+
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",

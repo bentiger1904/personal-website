@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaExclamationTriangle} from 'react-icons/fa'
 
+
 const PageNotFound = () => {
   return (
     <section className='text-center flex flex-col justify-center items-center'>

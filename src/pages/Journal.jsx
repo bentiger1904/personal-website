@@ -44,6 +44,7 @@ function Journal() {
   };
 
   return (
+
     <div style={{ backgroundImage: `url("https://wallpapercave.com/wp/wp6661087.jpg")`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
       <Hero>
         <h1 class="animate__animated animate__rubberBand">
@@ -78,6 +79,39 @@ function Journal() {
         </Container>
       </div>
       {/* </div> */}
+
+    <div className="journal-background">
+      <Hero>
+        <h1 className="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
+      </Hero>
+      <div className="container">
+        <div className="content">
+          <Container>
+            <Row>
+              <Col size="md-12">
+                <div className="entry-form">
+                  <div className="entry-form-container">
+                    <EntryForm
+                      onSubmit={addEntry}
+                      entryToEdit={editIndex !== null ? entries[editIndex] : null} 
+                    />
+                  </div>
+                </div>
+              </Col>
+              <Col size="md-12">
+                <div className="entry-list-container">
+                  <EntryList
+                    entries={entries}
+                    onDelete={deleteEntry}
+                    onEdit={(index) => setEditIndex(index)}
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
+
     </div>
   );
 }
