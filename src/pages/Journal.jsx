@@ -56,7 +56,7 @@ function Journal() {
               <Col size="md-12">
                 <div className="entry-form">
                   <div className="entry-form-container">
-                    <EntryForm
+                    <EnqtryForm
                       onSubmit={addEntry}
                       entryToEdit={editIndex !== null ? entries[editIndex] : null} 
                     />
