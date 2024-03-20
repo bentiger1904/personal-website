@@ -1,5 +1,5 @@
 .hero {
-  height: 500px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -8,7 +8,7 @@
 .hero::after {
   content: "";
   display: block;
-  opacity: .4;
+  opacity: .2;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -24,10 +24,12 @@
 
 .hero h1, .hero h2 {
   color: white;
+  font-family: "Euphoria Script", cursive;
+  font-style: normal;
 }
 
 .hero h1 {
-  font-size: 60px;
-  padding-top: 140px;
+  font-size: 100px;
+  padding-top: 80px;
   margin-top: 0;
 }

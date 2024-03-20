@@ -6,7 +6,9 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
-// import 'animate.css';
+
+import 'animate.css';
+
 
 function Task() {
   const [task, setTask] = useState("");
@@ -35,10 +37,10 @@ function Task() {
       const newTask = { task, taskDescription };
       setTaskList([...taskList, newTask]);
     }
-
+  
     // Save updated task list to local storage whenever it changes
-    localStorage.setItem("taskList", JSON.stringify(taskList));
-
+    localStorage.setItem("taskList", JSON.stringify([...taskList, { task, taskDescription }]));
+  
     // Clear input fields after saving
     setTask("");
     setTaskDescription("");
@@ -64,8 +66,8 @@ function Task() {
   };
 
   return (
-    <div>
-      <Hero backgroundImage="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzQ3YW5oZnd5bXoydjh0bXB0MG83N3d4NDNyZnZhcnhkdGZxOGJmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ql4RdCMLHEsBAfcIY1/giphy.gif">
+    <div backgroundImage= "url(../a)">
+  <Hero backgroundImage={backgroundImage}>
         <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
       </Hero >
       <Container >
@@ -96,7 +98,6 @@ function Task() {
             <Button
               label={editIndex !== null ? "Update" : "Save"}
               style={{
-                backgroundcolor: "blueviolet",
                 color: "white",
                 border: "none",
                 padding: "5px 10px",
