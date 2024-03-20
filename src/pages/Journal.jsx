@@ -44,7 +44,7 @@ function Journal() {
   };
 
   return (
-    <div className="journal-background">
+    <div className="jourdnal-backgroun">
       <Hero>
         <h1 className="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
          {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
@@ -56,7 +56,7 @@ function Journal() {
               <Col size="md-12">
                 <div className="entry-form">
                   <div className="entry-form-container">
-                    <EnqtryForm
+                    <EntryForm
                       onSubmit={addEntry}
                       entryToEdit={editIndex !== null ? entries[editIndex] : null} 
                     />
