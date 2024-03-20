@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-// import 'animate.css';
+import 'animate.css';
 
 function List() {
   const [day, setDay] = useState("");
