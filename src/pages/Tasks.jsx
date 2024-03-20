@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
@@ -63,9 +64,11 @@ function Task() {
   };
 
   return (
+
     <div>
   <Hero>
       <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
+
       </Hero >
       <Container style={{ backgroundColor: '#deb887' }}>
         <Row>
@@ -92,7 +95,21 @@ function Task() {
                 onChange={(e) => setTaskDescription(e.target.value)}
               ></textarea>
             </div>
-            <Button
+            <span
+        onClick={handleSave}
+        
+        style={{
+          padding: "5px",
+          border: "2px solid green",
+          borderRadius: "5px",
+          backgroundColor: "#eff0b8",
+          color: "green",
+          cursor: "pointer",
+        }}
+      >
+        Add Entry <FaPlusCircle className="mb-1" />
+      </span>
+            {/* <Button
               label={editIndex !== null ? "Update" : "Save"}
               style={{
                 backgroundColor: "#ffe4c4",
@@ -104,7 +121,7 @@ function Task() {
               }}
               onClick={handleSave}
               type="primary"
-            />
+            /> */}
           </Col>
           <Col size="md-6">
             <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Task List:</h2>

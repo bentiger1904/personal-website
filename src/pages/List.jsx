@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import 'animate.css';
+import AddEntryBtn from "../components/AddEntryBtn/AddEntryBtn";
+import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
+import "animate.css";
 
 function List() {
   const [store, setStore] = useState("");
@@ -28,11 +31,11 @@ function List() {
       quantity: quantity,
       budget: budget,
     };
-    
-        // Save updated shopping list to local storage whenever it changes
-  //       localStorage.setItem("shoppingList", JSON.stringify([...shoppingList, newItem]));
-  // setShoppingList([...shoppingList, newItem]);
-  const updatedList = [...shoppingList, newItem];
+
+    // Save updated shopping list to local storage whenever it changes
+    //       localStorage.setItem("shoppingList", JSON.stringify([...shoppingList, newItem]));
+    // setShoppingList([...shoppingList, newItem]);
+    const updatedList = [...shoppingList, newItem];
     localStorage.setItem("shoppingList", JSON.stringify(updatedList));
     setShoppingList(updatedList);
 
@@ -54,12 +57,14 @@ function List() {
   return (
     <div>
       <Hero>
-        <h1 class="animate__animated animate__backInUp">Welcome to Your personal Shopping List!</h1>
+        <h1 class="animate__animated animate__backInUp">
+          Welcome to Your personal Shopping List!
+        </h1>
       </Hero>
       <Container style={{backgroundColor: '#deb887'}}>
         <Row>
           <Col size="md-12">
-            <h2 >Add Shopping Item:</h2>
+            <h2>Add Shopping Item:</h2>
             <div className="form-group">
               <label htmlFor="storeInput">Store:</label>
               <input
@@ -71,7 +76,9 @@ function List() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="foodTypeInput">Type of Food/Item of Clothing:</label>
+              <label htmlFor="foodTypeInput">
+                Type of Food/Item of Clothing:
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -100,14 +107,38 @@ function List() {
                 onChange={(e) => setBudget(e.target.value)}
               />
             </div>
+
+            {/* <AddEntryBtn /> */}
+            <tbody>
+              <tr className="table-primary">
+                <td colSpan="4">
+                  <span
+                    style={{
+                      padding: "5px",
+                      border: "2px solid green",
+                      borderRadius: "5px",
+                      backgroundColor: "#eff0b8",
+                      color: "green",
+                      cursor: "pointer",
+                    }}
+                    onClick={handleSave}
+                  >
+                    Add Entry <FaPlusCircle className="mb-1" />
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+            {/* <button className="btn btn-primary" onClick={handleSave}>
+
             <button className="btn btn-primary" style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }} onClick={handleSave}>
+
               Save
-            </button>
+            </button> */}
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <h2>Shopping List:</h2>
+            <h2 style={{ marginTop: "10px" }}>Shopping List:</h2>
             <ul className="list-group">
               {shoppingList.map((item, index) => (
                 <li
@@ -118,13 +149,22 @@ function List() {
                     <strong>{item.store}</strong> - {item.foodType}, Quantity:{" "}
                     {item.quantity}, Budget: {item.budget}
                   </div>
+                  {/* <DeleteBtn /> */}
                   <button
+                    style={{ backgroundColor: "#db2828" }}
+                    type="button"
+                    className="btn-danger"
+                    onClick={() => handleDelete(index)}
+                  >
+                    <FaTrashAlt />
+                  </button>
+                  {/* <button
                     className="btn btn-danger"
                     style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }}
                     onClick={() => handleDelete(index)}
                   >
                     Delete
-                  </button>
+                  </button> */}
                 </li>
               ))}
             </ul>

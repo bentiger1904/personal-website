@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
@@ -7,8 +6,9 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import "../index.css";
-import 'animate.css';
-
+import "animate.css";
+import background from "../assets/exerciseBackground.jpeg";
+import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 
 function WorkoutTrackerApp() {
   function UseLocalStorage(key, initialValue) {
@@ -49,7 +49,6 @@ function WorkoutTrackerApp() {
 
   const addRow = (data, index) => {
     return (
-
       <tr key={index} className="tracker__row">
         <td>
           <input
@@ -64,7 +63,6 @@ function WorkoutTrackerApp() {
         </td>
         <td>
           <select
-            className="tracker__workout"
             value={data.workout}
             onChange={(e) => {
               const newWorkout = e.target.value;
@@ -81,19 +79,32 @@ function WorkoutTrackerApp() {
         </td>
         <td>
           <input
+            style={{ width: "60px" }}
             type="number"
-            className="tracker__duration"
             value={data.duration}
             onChange={(e) => {
               const newDuration = e.target.value;
               updateEntry(index, { ...data, duration: newDuration });
             }}
           />
-          <span > minutes</span>
+          <span> minutes</span>
         </td>
         <td>
+          <input
+            style={{ width: "60px" }}
+            type="number"
+            value={data.distance}
+            onChange={(e) => {
+              const newDistance = e.target.value;
+              updateEntry(index, { ...data, distance: newDistance });
+            }}
+          />
+          <span> miles</span>
+        </td>
+        <td>
+          {/* <DeleteBtn onClick={() => deleteEntry(index)}/> */}
           <button
-            style={{backgroundColor: "#ff66ff"}}
+            style={{ backgroundColor: "#db2828" }}
             type="button"
             className="btn-danger"
             onClick={() => deleteEntry(index)}
@@ -106,33 +117,47 @@ function WorkoutTrackerApp() {
   };
 
   return (
-    <>
-
-        <Hero>
-            <h1 class="animate__animated animate__backInRight">Welcome to Your personal Exercise Tracker!
-            </h1>
-        </Hero>
-    <Container>
-
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Hero>
+        <h1 class="animate__animated animate__backInRight">
+          Welcome to Your personal Exercise Tracker!
+        </h1>
+      </Hero>
+      <Container>
         <Row>
           <Col size="md-12">
-            <table className="table">
+            <table className="table table-danger flex" >
               <thead>
-                <tr className="table-info">
+                <tr>
                   <th>Date</th>
                   <th>Workout</th>
                   <th>Duration</th>
+                  <th>Distance</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody className="table-warning">
                 {entries.map((entry, index) => addRow(entry, index))}
               </tbody>
-              <tbody>
-                <tr className="table-primary">
-                  <td colSpan="4">
-                    <span 
-                      style={{color: "green", cursor: "pointer"}}
+              <tbody >
+                <tr className="table-primary" >
+                  <td colSpan="12">
+                    <span
+                      style={{
+                        float: "center",
+                        color: "green",
+                        cursor: "pointer",
+                        padding: "5px",
+                        border: "2px solid green",
+                        borderRadius: "5px",
+                        backgroundColor: "#eff0b8",
+                      }}
                       onClick={() => {
                         const date = new Date();
                         const year = date.getFullYear();
@@ -144,10 +169,11 @@ function WorkoutTrackerApp() {
                           date: `${year}-${month}-${day}`,
                           workout: "walking",
                           duration: 30,
+                          distance: 2,
                         });
                       }}
                     >
-                      Add Entry <FaPlusCircle className="mb-1"/>
+                      Add Entry <FaPlusCircle className="mb-1" />
                     </span>
                   </td>
                 </tr>
@@ -156,7 +182,7 @@ function WorkoutTrackerApp() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }
 
