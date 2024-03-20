@@ -61,7 +61,6 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
         <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button>
       </form>
     </div>
-    // </div>
   );
 };
 
