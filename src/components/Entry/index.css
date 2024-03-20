@@ -3,93 +3,92 @@ body  {
   margin: 0;
   padding: 0;
   border: 0;
-  font: inherit;
-  vertical-align: baseline;
+  /* font: inherit; */
+  /* vertical-align: baseline; */
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   color: #333;
 }
 
 .container { 
-  max-width: 800px;
+  max-width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 20px;
 } 
-.entry-list-container {
-  margin: 0 auto;
-  padding: 50px;
+/* .entry-list-container {
+  /* margin: 0 auto;
+  padding: 50px; */
+  /* border: 2px solid rgb(237, 210, 160);} */ */
   
-}
 h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
 }
 
 p {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 /* Buttons */
 
 .table-responsive .btn.btn-danger {
-  display: inline-block;
-  background-color: #23c844;
+  background-color: rgb(206, 205, 205);
   color: #212529;
-  border-color: #23c844;
-  padding: 8px 12px;
-  margin: 8px;
+  border: 2px solid gray;
+ 
 }
 
 .table-responsive .btn.btn-warning {
-  display: inline-block;
-  background-color: #f7e030;
+  background-color: burlywood;
   color: #212529;
-  border-color: #f7e030;
-  padding: 9px 21px;
-  margin: 8px;
+  border-color: 2px solid gray;
 }
 
 .table-responsive .btn.btn-warning:hover{
-  background-color: #f7ad2d;
+  background-color: beige;
 }
 
 .table-responsive .btn.btn-danger:hover {
-  background-color: #23b2c8;
+  background-color: #83d5e1;
 
 }
 .entry-form-container {
+  width: 90%;
   margin: 20px auto;
   max-width: 1200px;
-  padding: 10px;
-  background-color: #c7cd25;
+  padding: 20px;
+  background-color: rgb(231, 219, 197);
   border-radius: 8px;
+  /* border: 8px solid rgb(237, 210, 160); */
 }
 
 .entry-form-title {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .entry-form {
+  display: flex;
   flex-direction: column;
 }
 
 .form-group {
-  margin-bottom: 15px;
-  display: flex;
+  margin-bottom: 1rem;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
 label {
@@ -107,38 +106,49 @@ label {
 
 .form-button {
   padding: 10px 20px;
-  background-color: #f4f955;
+  background-color:  burlywood;
   color: black;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 36%;
+  margin-left: 45%;
+  width: 115px;
+  
 }
 
 .form-button:hover{
 background-color: beige;
 }
 
-.entry-form-wrapper {
+/* .entry-form-wrapper {
   background-color: #f0f0f0; 
   padding: 20px; 
   border-radius: 8px; 
-}
+} */
 
-.table-responsive {
+/* .table-responsive {
   margin: 20px auto;
   border-radius: 8px;
   justify-content: center;
-}
+} */
 
 .heading {
-  background-color:  #c7cd25!important; 
+  background-color:  rgb(231, 219, 197)!important; 
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .entry-form-container,
   .entry-list-container {
-    width: 100%; 
+    /* width: 100%;  */
+    padding: 40px;
+  }
+  
+  .journal-background {
+    background-image: url('public/wp6661118-stationary-wallpapers.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
 }

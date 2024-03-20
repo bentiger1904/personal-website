@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Hero from "../components/Hero";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import Wrapper from "../components/Wrapper";
+//import Wrapper from "../components/Wrapper";
 import { Container } from 'react-bootstrap';
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
-import 'animate.css';
+// import 'animate.css';
 
 
 function Journal() {
@@ -44,39 +44,39 @@ function Journal() {
   };
 
   return (
-    <Wrapper>
+    <div className="journal-background">
       <Hero>
-        <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
+        <h1 className="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
          {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
       </Hero>
       <div className="container">
-      <div className="content">
-      <Container>
-        <Row>
-          <Col size="md-8">
-            <div className="entry-form">
-            <div className="entry-form-container">
-              <EntryForm
-                onSubmit={addEntry}
-                entryToEdit={editIndex !== null ? entries[editIndex] : null} 
-              />
-            </div>
-            </div>
-          </Col>
-          <Col size="md-12">
-            <div className="entry-list-container">
-              <EntryList
-                entries={entries}
-                onDelete={deleteEntry}
-                onEdit={(index) => setEditIndex(index)}
-              />
-            </div>
-          </Col>
-        </Row>
-        </Container>
+        <div className="content">
+          <Container>
+            <Row>
+              <Col size="md-12">
+                <div className="entry-form">
+                  <div className="entry-form-container">
+                    <EntryForm
+                      onSubmit={addEntry}
+                      entryToEdit={editIndex !== null ? entries[editIndex] : null} 
+                    />
+                  </div>
+                </div>
+              </Col>
+              <Col size="md-12">
+                <div className="entry-list-container">
+                  <EntryList
+                    entries={entries}
+                    onDelete={deleteEntry}
+                    onEdit={(index) => setEditIndex(index)}
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
-      </div>
-    </Wrapper>
+    </div>
   );
 }
 
