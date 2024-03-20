@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
@@ -64,7 +65,7 @@ function Task() {
   };
 
   return (
-    <div>
+    <div >
       <Hero backgroundImage="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzQ3YW5oZnd5bXoydjh0bXB0MG83N3d4NDNyZnZhcnhkdGZxOGJmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ql4RdCMLHEsBAfcIY1/giphy.gif">
         <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
       </Hero >
@@ -93,7 +94,21 @@ function Task() {
                 onChange={(e) => setTaskDescription(e.target.value)}
               ></textarea>
             </div>
-            <Button
+            <span
+        onClick={handleSave}
+        
+        style={{
+          padding: "5px",
+          border: "2px solid green",
+          borderRadius: "5px",
+          backgroundColor: "#eff0b8",
+          color: "green",
+          cursor: "pointer",
+        }}
+      >
+        Add Entry <FaPlusCircle className="mb-1" />
+      </span>
+            {/* <Button
               label={editIndex !== null ? "Update" : "Save"}
               style={{
                 backgroundcolor: "blueviolet",
@@ -105,7 +120,7 @@ function Task() {
               }}
               onClick={handleSave}
               type="primary"
-            />
+            /> */}
           </Col>
           <Col size="md-6">
             <h2 style={{textAlign:"center", backgroundColor:"#9CF6F6",borderRadius:"5px"}}>Task List:</h2>

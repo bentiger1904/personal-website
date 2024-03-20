@@ -21,6 +21,7 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Journal/>} />
+            <Route path="/Journal" element={<Journal/>} />
             <Route path="/tasks" element={<Tasks/>} />
             <Route path="/list" element={<List/>} />
             <Route path="/exercise" element={<Exercise/>} />

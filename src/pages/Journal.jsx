@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import Wrapper from "../components/Wrapper";
-import { Container } from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
-import 'animate.css';
-
+import "animate.css";
 
 function Journal() {
   const localStorageKey = "journalEntries";
@@ -40,43 +40,45 @@ function Journal() {
     const updatedEntries = [...entries];
     updatedEntries[index] = updatedEntry;
     setEntries(updatedEntries);
-    setEditIndex(null); 
+    setEditIndex(null);
   };
 
   return (
-    <Wrapper>
+    <div style={{ backgroundImage: `url("https://wallpapercave.com/wp/wp6661087.jpg")`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
       <Hero>
-        <h1 class="animate__animated animate__rubberBand">Welcome to Your personal Journal</h1>
-         {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
+        <h1 class="animate__animated animate__rubberBand">
+          Welcome to Your personal Journal
+        </h1>
+        {/* {loading ? <p>Loading...</p> : error ? <p>{error}</p> : <p>{quote}</p>} */}
       </Hero>
-      <div className="container">
+      {/* <div className="container"> */}
       <div className="content">
-      <Container>
-        <Row>
-          <Col size="md-8">
-            <div className="entry-form">
-            <div className="entry-form-container">
-              <EntryForm
-                onSubmit={addEntry}
-                entryToEdit={editIndex !== null ? entries[editIndex] : null} 
-              />
-            </div>
-            </div>
-          </Col>
-          <Col size="md-12">
-            <div className="entry-list-container">
-              <EntryList
-                entries={entries}
-                onDelete={deleteEntry}
-                onEdit={(index) => setEditIndex(index)}
-              />
-            </div>
-          </Col>
-        </Row>
+        <Container>
+          <Row>
+            <Col size="md-12">
+              <div className="entry-form">
+                <div className="entry-form-container">
+                  <EntryForm
+                    onSubmit={addEntry}
+                    entryToEdit={editIndex !== null ? entries[editIndex] : null}
+                  />
+                </div>
+              </div>
+            </Col>
+            <Col size="md-12">
+              <div className="entry-list-container">
+                <EntryList
+                  entries={entries}
+                  onDelete={deleteEntry}
+                  onEdit={(index) => setEditIndex(index)}
+                />
+              </div>
+            </Col>
+          </Row>
         </Container>
       </div>
-      </div>
-    </Wrapper>
+      {/* </div> */}
+    </div>
   );
 }
 

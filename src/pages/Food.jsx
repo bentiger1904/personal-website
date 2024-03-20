@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { FaTrashAlt, FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import 'animate.css';
+import "animate.css";
 
 function List() {
   const [day, setDay] = useState("");
@@ -61,7 +62,9 @@ function List() {
   return (
     <div>
       <Hero>
-        <h1 class="animate__animated animate__zoomIn">Welcome to Your Food Log!</h1>
+        <h1 class="animate__animated animate__zoomIn">
+          Welcome to Your Food Log!
+        </h1>
       </Hero>
       <Container>
         <Row>
@@ -119,14 +122,27 @@ function List() {
                 onChange={(e) => setCalories(e.target.value)}
               />
             </div>
-            <button className="btn btn-primary" onClick={handleSave}>
+            <span
+        onClick={handleSave}
+        style={{
+          padding: "5px",
+          border: "2px solid green",
+          borderRadius: "5px",
+          backgroundColor: "#eff0b8",
+          color: "green",
+          cursor: "pointer",
+        }}
+      >
+        Add Entry <FaPlusCircle className="mb-1" />
+      </span>
+            {/* <button className="btn btn-primary" onClick={handleSave}>
               Save
-            </button>
+            </button> */}
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <h2>Food Record:</h2>
+            <h2 className="mt-2">Food Record:</h2>
             <ul className="list-group">
               {foodList.map((item, index) => (
                 <li
@@ -141,11 +157,19 @@ function List() {
                     {item.calories}
                   </div>
                   <button
+                    style={{ backgroundColor: "#db2828" }}
+                    type="button"
+                    className="btn-danger"
+                    onClick={() => handleDelete(index)}
+                  >
+                    <FaTrashAlt />
+                  </button>
+                  {/* <button
                     className="btn btn-danger"
                     onClick={() => handleDelete(index)}
                   >
                     Delete
-                  </button>
+                  </button> */}
                 </li>
               ))}
             </ul>

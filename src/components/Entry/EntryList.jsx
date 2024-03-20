@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import "./index.css";
 
 const EntryList = ({ entries, onEdit, onDelete }) => {
@@ -20,8 +21,24 @@ const EntryList = ({ entries, onEdit, onDelete }) => {
     <td className="larger-cell">{entry.description}</td>
     <td>{entry.date}</td>
     <td>
-      <button className="btn btn-warning" onClick={() => onEdit(index)}>Edit</button>
-      <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button>
+    <button
+            style={{ backgroundColor: "#ec8027" }}
+            type="button"
+            className="btn-danger"
+            onClick={() => handleEdit(index)}
+          >
+            <FaEdit />
+          </button>
+      {/* <button className="btn btn-warning" onClick={() => onEdit(index)}>Edit</button> */}
+      <button
+            style={{ backgroundColor: "#db2828", paddingLeft: "5px", borderRadius: "5px" }}
+            type="button"
+            className="btn-danger"
+            onClick={() => handleDelete(index)}
+          >
+            <FaTrashAlt />
+          </button>
+      {/* <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button> */}
     </td>
   </tr>
 ))}
