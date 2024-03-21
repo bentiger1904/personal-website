@@ -4,8 +4,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import AddEntryBtn from "../components/AddEntryBtn/AddEntryBtn";
-import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
+import background from "../assets/shoppingListStoreBackground.jpeg";
 import "animate.css";
 
 function List() {
@@ -55,7 +54,13 @@ function List() {
   };
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
       <Hero>
         <h1 class="animate__animated animate__backInUp">
           Welcome to Your personal Shopping List!
@@ -107,20 +112,11 @@ function List() {
                 onChange={(e) => setBudget(e.target.value)}
               />
             </div>
-
-            {/* <AddEntryBtn /> */}
             <tbody>
               <tr className="table-primary">
                 <td colSpan="4">
                   <span
-                    style={{
-                      padding: "5px",
-                      border: "2px solid green",
-                      borderRadius: "5px",
-                      backgroundColor: "#eff0b8",
-                      color: "green",
-                      cursor: "pointer",
-                    }}
+                    className="addEntry-button"
                     onClick={handleSave}
                   >
                     Add Entry <FaPlusCircle className="mb-1" />
@@ -128,12 +124,6 @@ function List() {
                 </td>
               </tr>
             </tbody>
-            {/* <button className="btn btn-primary" onClick={handleSave}>
-
-            <button className="btn btn-primary" style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }} onClick={handleSave}>
-
-              Save
-            </button> */}
           </Col>
         </Row>
         <Row>
@@ -149,22 +139,13 @@ function List() {
                     <strong>{item.store}</strong> - {item.foodType}, Quantity:{" "}
                     {item.quantity}, Budget: {item.budget}
                   </div>
-                  {/* <DeleteBtn /> */}
                   <button
-                    style={{ backgroundColor: "#db2828" }}
                     type="button"
-                    className="btn-danger"
+                    className="delete-button"
                     onClick={() => handleDelete(index)}
                   >
-                    <FaTrashAlt />
+                    <FaTrashAlt className="mb-1"/>
                   </button>
-                  {/* <button
-                    className="btn btn-danger"
-                    style={{ backgroundColor: '#ffe4c4', borderColor: '#ffe4c4', color: '#333' }}
-                    onClick={() => handleDelete(index)}
-                  >
-                    Delete
-                  </button> */}
                 </li>
               ))}
             </ul>

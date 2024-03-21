@@ -104,9 +104,8 @@ function WorkoutTrackerApp() {
         <td>
           {/* <DeleteBtn onClick={() => deleteEntry(index)}/> */}
           <button
-            style={{ backgroundColor: "#db2828" }}
             type="button"
-            className="btn-danger"
+            className="delete-button"
             onClick={() => deleteEntry(index)}
           >
             <FaTrashAlt />
@@ -121,7 +120,9 @@ function WorkoutTrackerApp() {
       style={{
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
       }}
     >
       <Hero>
@@ -149,15 +150,7 @@ function WorkoutTrackerApp() {
                 <tr className="table-primary" >
                   <td colSpan="12">
                     <span
-                      style={{
-                        float: "center",
-                        color: "green",
-                        cursor: "pointer",
-                        padding: "5px",
-                        border: "2px solid green",
-                        borderRadius: "5px",
-                        backgroundColor: "#eff0b8",
-                      }}
+                      className="addEntry-button"
                       onClick={() => {
                         const date = new Date();
                         const year = date.getFullYear();

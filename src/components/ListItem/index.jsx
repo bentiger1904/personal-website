@@ -12,43 +12,20 @@ function ListItem({ taskItem, index, handleEdit, handleDelete }) {
       </div>
 
       <div className={styles.actions}>
-      <button
-            style={{ backgroundColor: "#ec8027" }}
-            type="button"
-            className="btn-danger"
-            onClick={() => handleEdit(index)}
-          >
-            <FaEdit />
-          </button>
-        {/* <button
-          className={`btn btn-primary ${styles.editButton}`}
-
-      <div>
         <button
-          className="btn btn-sm btn-info mr-2"
-
+          type="button"
+          className="edit-button"
           onClick={() => handleEdit(index)}
         >
-          Edit
-        </button> */}
+          <FaEdit className="mb-1"/>
+        </button>
         <button
-
-            style={{ backgroundColor: "#db2828" }}
-            type="button"
-            className="btn-danger"
-            onClick={() => handleDelete(index)}
-          >
-            <FaTrashAlt />
-          </button>
-        {/* <button
-          className={`btn btn-danger ml-2 ${styles.deleteButton}`}
-
-          className="btn btn-sm btn-danger"
-
+          type="button"
+          className="delete-button"
           onClick={() => handleDelete(index)}
         >
-          Delete
-        </button> */}
+          <FaTrashAlt className="mb-1"/>
+        </button>
       </div>
     </li>
   );

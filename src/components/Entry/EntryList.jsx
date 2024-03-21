@@ -22,23 +22,19 @@ const EntryList = ({ entries, onEdit, onDelete }) => {
     <td>{entry.date}</td>
     <td>
     <button
-            style={{ backgroundColor: "#ec8027" }}
             type="button"
-            className="btn-danger"
-            onClick={() => handleEdit(index)}
+            className="edit-button"
+            onClick={() => onEdit(index)}
           >
-            <FaEdit />
+            <FaEdit className="mb-1"/>
           </button>
-      {/* <button className="btn btn-warning" onClick={() => onEdit(index)}>Edit</button> */}
       <button
-            style={{ backgroundColor: "#db2828", paddingLeft: "5px", borderRadius: "5px" }}
             type="button"
-            className="btn-danger"
-            onClick={() => handleDelete(index)}
+            className="delete-button"
+            onClick={() => onDelete(index)}
           >
-            <FaTrashAlt />
+            <FaTrashAlt className="mb-1"/>
           </button>
-      {/* <button className="btn btn-danger" onClick={() => onDelete(index)}>Delete</button> */}
     </td>
   </tr>
 ))}

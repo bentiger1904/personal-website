@@ -16,5 +16,5 @@ const DeleteBtn = (deleteEntry, index ) => {
     </>
   )
 }
-
+ 
 export default DeleteBtn

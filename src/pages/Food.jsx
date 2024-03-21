@@ -4,7 +4,8 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import "animate.css";
+import background from "../assets/shoppingListBackground.jpeg";
+import "animate.css"; 
 
 function List() {
   const [day, setDay] = useState("");
@@ -60,7 +61,13 @@ function List() {
   };
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
       <Hero>
         <h1 class="animate__animated animate__zoomIn">
           Welcome to Your Food Log!
@@ -125,23 +132,10 @@ function List() {
 
             <span
         onClick={handleSave}
-        style={{
-          padding: "5px",
-          border: "2px solid green",
-          borderRadius: "5px",
-          backgroundColor: "#eff0b8",
-          color: "green",
-          cursor: "pointer",
-        }}
+        className="addEntry-button"
       >
         Add Entry <FaPlusCircle className="mb-1" />
       </span>
-            {/* <button className="btn btn-primary" onClick={handleSave}>
-
-            <button className="btn btn-primary" style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: 'white' }} onClick={handleSave}>
-
-              Save
-            </button> */}
           </Col>
         </Row>
         <Row>
@@ -161,20 +155,12 @@ function List() {
                     {item.calories}
                   </div>
                   <button
-                    style={{ backgroundColor: "#db2828" }}
                     type="button"
-                    className="btn-danger"
+                    className="delete-button"
                     onClick={() => handleDelete(index)}
                   >
                     <FaTrashAlt />
                   </button>
-                  {/* <button
-                    className="btn btn-danger"
-                    style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: '#white' }}
-                    onClick={() => handleDelete(index)}
-                  >
-                    Delete
-                  </button> */}
                 </li>
               ))}
             </ul>
