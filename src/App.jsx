@@ -1,6 +1,3 @@
-// import { useState } from 'react'
-import './App.css'
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Journal from './pages/Journal';
@@ -12,6 +9,7 @@ import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Wrapper from './components/Wrapper';
+import './App.css'
 
 function App() {
   return (
@@ -26,7 +24,7 @@ function App() {
             <Route path="/list" element={<List/>} />
             <Route path="/exercise" element={<Exercise/>} />
             <Route path="/food" element={<Food/>} />
-            <Route path="/*" element={<PageNotFound/>} />
+            <Route path="*" element={<PageNotFound/>} />
           </Routes>
         </Wrapper>
         <Footer />

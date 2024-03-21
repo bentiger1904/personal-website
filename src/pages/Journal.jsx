@@ -7,6 +7,7 @@ import EntryForm from "../components/Entry/EntryForm";
 import EntryList from "../components/Entry/EntryList";
 import "../index.css";
 import "animate.css";
+
 function Journal() {
   const localStorageKey = "journalEntries"; // Retrieve entries from local storage
   const [entries, setEntries] = useState(() => {
