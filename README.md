@@ -28,11 +28,12 @@ This is a simple web application designed to help users keep track of their dail
 
 To use the Personal Website just go to the page <a href="https://g16-personal-website.netlify.app/"> here</a> !
 
-![Screenshot of Personal Journal.](/src/assets/home.png)
+![Screenshot of Personal Journal.](/src/assets/journal.png)
 ![Screenshot of Shopping list.](/src/assets/list.png)
-![Screenshot of Task list.](/src/assets/task.png)
+![Screenshot of Task list.](/src/assets/tasks.png)
 ![Screenshot of Exercise tracker .](/src/assets/exercise.png)
 ![Screenshot of Food tracker ](/src/assets/food.png)
+![Screenshot of Custom 404 page ](/src/assets/404NotFound.png)
 
 ## Instructions
 
@@ -49,10 +50,10 @@ Open the website and you can add entries on different pages of the presonal webs
 
 ## Credits
 
-- <a href="https://github.com/bentiger1904">Ben</a>
-- <a href="https://github.com/brooksy236">Davit</a>
-- <a href="https://github.com/artur158">Artur  </a> 
-- <a href="https://github.com/RusLena">Elena</a> 
+- <a href="https://github.com/bentiger1904">Ben Mahoney</a>
+- <a href="https://github.com/brooksy236">David Brooks</a>
+- <a href="https://github.com/artur158">Artur Piasecki</a> 
+- <a href="https://github.com/RusLena">Elena Golovko</a> 
 
 ## License
 
