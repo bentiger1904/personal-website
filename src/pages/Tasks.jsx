@@ -7,6 +7,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
+import background from "../assets/notesBackground.jpeg";
 import 'animate.css';
 
 
@@ -65,7 +66,13 @@ function Task() {
 
   return (
 
-    <div>
+    <div style={{
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
   <Hero>
       <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
 

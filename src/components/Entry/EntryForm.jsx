@@ -61,22 +61,23 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
             required
           />
         </div>
-        <span
+        {/* <span
           className="form-button"
           type="submit"
           style={{
+            margin: "20px",
             padding: "5px",
-            border: "2px solid green",
+            border: "2px solid #a35a31",
             borderRadius: "5px",
-            backgroundColor: "#eff0b8",
-            color: "green",
+            backgroundColor: "burlywood",
+            color: "black",
             cursor: "pointer",
           }}
         >
           {entryToEdit ? "Edit Entry" : "Add Entry"}
-          <FaPlusCircle className="mb-1" />
-        </span>
-        {/* <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button> */}
+          <FaPlusCircle className="plusCircle" />
+        </span> */}
+        <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button>
       </form>
     </div>
     

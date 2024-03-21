@@ -25,7 +25,7 @@ const EntryList = ({ entries, onEdit, onDelete }) => {
             style={{ backgroundColor: "#ec8027" }}
             type="button"
             className="btn-danger"
-            onClick={() => handleEdit(index)}
+            onClick={() => onEdit(index)}
           >
             <FaEdit />
           </button>
@@ -34,7 +34,7 @@ const EntryList = ({ entries, onEdit, onDelete }) => {
             style={{ backgroundColor: "#db2828", paddingLeft: "5px", borderRadius: "5px" }}
             type="button"
             className="btn-danger"
-            onClick={() => handleDelete(index)}
+            onClick={() => onDelete(index)}
           >
             <FaTrashAlt />
           </button>

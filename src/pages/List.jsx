@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import background from "../assets/shoppingListStoreBackground.jpeg";
 import AddEntryBtn from "../components/AddEntryBtn/AddEntryBtn";
 import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 import "animate.css";
@@ -55,7 +56,13 @@ function List() {
   };
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
       <Hero>
         <h1 class="animate__animated animate__backInUp">
           Welcome to Your personal Shopping List!
