@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import background from "../assets/shoppingListBackground.jpeg";
-import "animate.css"; 
+import "animate.css";
 
 function List() {
   const [day, setDay] = useState("");
@@ -61,22 +61,24 @@ function List() {
   };
 
   return (
-    <div style={{
-      backgroundImage: `url(${background})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      minHeight: "100vh",
-    }}>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }}
+    >
       <Hero>
         <h1 class="animate__animated animate__zoomIn">
           Welcome to Your Food Log!
         </h1>
       </Hero>
-      <Container style={{backgroundColor: '#f5d76e'}}>
+      <Container style={{ backgroundColor: "#f5d76e" }}>
         <Row>
           <Col size="md-12">
-            <h2>Add Food Item:</h2>
+            <h2 style={{ textAlign: "center" }}>Add Food Item:</h2>
             <div className="form-group">
               <label htmlFor="dayInput">Day of Week:</label>
               <input
@@ -130,17 +132,16 @@ function List() {
               />
             </div>
 
-            <span
-        onClick={handleSave}
-        className="addEntry-button"
-      >
-        Add Entry <FaPlusCircle className="mb-1" />
-      </span>
+            <span onClick={handleSave} className="addEntry-button">
+              Add Entry <FaPlusCircle className="mb-1" />
+            </span>
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <h2 className="mt-2">Food Record:</h2>
+            <h2 className="mt-2" style={{ textAlign: "center" }}>
+              Food Record:
+            </h2>
             <ul className="list-group">
               {foodList.map((item, index) => (
                 <li

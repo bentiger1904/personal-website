@@ -54,22 +54,30 @@ function List() {
   };
 
   return (
-    <div style={{
-      backgroundImage: `url(${background})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      minHeight: "100vh",
-    }}>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }}
+    >
       <Hero>
         <h1 class="animate__animated animate__backInUp">
           Welcome to Your personal Shopping List!
         </h1>
       </Hero>
-      <Container style={{backgroundColor: '#deb887'}}>
+      <Container style={{ backgroundColor: "#deb887" }}>
         <Row>
           <Col size="md-12">
-            <h2>Add Shopping Item:</h2>
+            <h2
+              style={{
+                textAlign: "center",
+              }}
+            >
+              Add Shopping Item:
+            </h2>
             <div className="form-group">
               <label htmlFor="storeInput">Store:</label>
               <input
@@ -112,23 +120,18 @@ function List() {
                 onChange={(e) => setBudget(e.target.value)}
               />
             </div>
-            <tbody>
-              <tr className="table-primary">
-                <td colSpan="4">
-                  <span
-                    className="addEntry-button"
-                    onClick={handleSave}
-                  >
-                    Add Entry <FaPlusCircle className="mb-1" />
-                  </span>
-                </td>
-              </tr>
-            </tbody>
+            <div>
+              <span className="addEntry-button" onClick={handleSave}>
+                Add Entry <FaPlusCircle className="mb-1" />
+              </span>
+            </div>
           </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <h2 style={{ marginTop: "10px" }}>Shopping List:</h2>
+            <h2 style={{ marginTop: "10px", textAlign: "center" }}>
+              Shopping List:
+            </h2>
             <ul className="list-group">
               {shoppingList.map((item, index) => (
                 <li
@@ -144,7 +147,7 @@ function List() {
                     className="delete-button"
                     onClick={() => handleDelete(index)}
                   >
-                    <FaTrashAlt className="mb-1"/>
+                    <FaTrashAlt className="mb-1" />
                   </button>
                 </li>
               ))}
