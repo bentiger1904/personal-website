@@ -18,13 +18,13 @@ function App() {
         <Navbar />
         <Wrapper>
           <Routes>
+            <Route path="*" element={<PageNotFound/>} />
             <Route path="/" element={<Journal/>} />
             <Route path="/Journal" element={<Journal/>} />
             <Route path="/tasks" element={<Tasks/>} />
             <Route path="/list" element={<List/>} />
             <Route path="/exercise" element={<Exercise/>} />
             <Route path="/food" element={<Food/>} />
-            <Route path="*" element={<PageNotFound/>} />
           </Routes>
         </Wrapper>
         <Footer />

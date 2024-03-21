@@ -29,7 +29,7 @@ This is a simple web application designed to help users keep track of their dail
 To use the Personal Website just go to the page <a href="https://g16-personal-website.netlify.app/"> here</a> !
 
 ![Screenshot of Personal Journal.](/src/assets/journal.png)
-![Screenshot of Shopping list.](/src/assets/list.png)
+![Screenshot of Shopping list.](/src/assets/shopping.png)
 ![Screenshot of Task list.](/src/assets/tasks.png)
 ![Screenshot of Exercise tracker .](/src/assets/exercise.png)
 ![Screenshot of Food tracker ](/src/assets/food.png)
