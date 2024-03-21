@@ -23,17 +23,6 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-          {/* <li className="nav-item">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  isActive ? 'nav-link active' : 'nav-link'
-                }
-              >
-                Home
-              </NavLink>
-            </li> */}
             <li className="nav-item">
               <NavLink
                 to="/"
