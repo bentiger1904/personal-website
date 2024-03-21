@@ -5,7 +5,7 @@
 
 This is a simple web application designed to help users keep track of their daily thoughts and experiences by allowing them to create and manage journal entries. Users can view their entries, create new ones, edit existing ones, and delete entries they no longer need.
 
-**Features of Personal Website:**
+**Features of Guess The Movie:**
 
 - Homepage: Displays a list of journal entries with titles, dates, and previews of content.
 - Viewing Journal Entries: Allows users to view the full content of a journal entry and provides options to edit or delete it.
@@ -49,10 +49,10 @@ Open the website and you can add entries on different pages of the presonal webs
 
 ## Credits
 
-- <a href="https://github.com/bentiger1904">Ben</a>
-- <a href="https://github.com/brooksy236">Davit</a>
-- <a href="https://github.com/artur158">Artur  </a> 
-- <a href="https://github.com/RusLena">Elena</a> 
+- <a href="https://github.com/bentiger1904"></a>
+- <a href="https://github.com/brooksy236"></a>
+- <a href="https://github.com/artur158"></a> 
+- <a href="https://github.com/RusLena"></a> 
 
 ## License
 

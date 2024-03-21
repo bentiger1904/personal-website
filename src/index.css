@@ -15,6 +15,10 @@ div[data-reactroot] {
 .delete-button {
   background-color: #db2828;
   transition: background-color 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  width: 38px;
 }
 
 .delete-button:hover {
@@ -33,4 +37,18 @@ div[data-reactroot] {
 
 .addEntry-button:hover {
   background-color: #c7f394;
+}
+
+.edit-button {
+  background-color: #ec8027;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 3px;
+  width: 38px;
+}
+
+.edit-button:hover {
+  background-color: #ec9e5e;
 }

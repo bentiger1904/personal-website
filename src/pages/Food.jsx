@@ -132,23 +132,10 @@ function List() {
 
             <span
         onClick={handleSave}
-        style={{
-          padding: "5px",
-          border: "2px solid green",
-          borderRadius: "5px",
-          backgroundColor: "#eff0b8",
-          color: "green",
-          cursor: "pointer",
-        }}
+        className="addEntry-button"
       >
         Add Entry <FaPlusCircle className="mb-1" />
       </span>
-            {/* <button className="btn btn-primary" onClick={handleSave}>
-
-            <button className="btn btn-primary" style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: 'white' }} onClick={handleSave}>
-
-              Save
-            </button> */}
           </Col>
         </Row>
         <Row>

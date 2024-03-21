@@ -1,24 +1,20 @@
-
 import React, { useState, useEffect } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-import Button from "../components/Button/button";
 import ListItem from "../components/ListItem/index";
 import background from "../assets/notesBackground.jpeg";
-import 'animate.css';
-
+import "animate.css";
 
 function Task() {
   const [task, setTask] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskList, setTaskList] = useState([]);
-  const [editIndex, setEditIndex] = useState(null); 
+  const [editIndex, setEditIndex] = useState(null);
 
   useEffect(() => {
-
     const savedTaskList = JSON.parse(localStorage.getItem("taskList"));
     if (savedTaskList) {
       setTaskList(savedTaskList);
@@ -30,61 +26,67 @@ function Task() {
       const updatedList = [...taskList];
       updatedList[editIndex] = { task, taskDescription };
       setTaskList(updatedList);
-      setEditIndex(null); 
+      setEditIndex(null);
     } else {
-
       const newTask = { task, taskDescription };
       setTaskList([...taskList, newTask]);
     }
-  
 
-    localStorage.setItem("taskList", JSON.stringify([...taskList, { task, taskDescription }]));
-  
+    localStorage.setItem(
+      "taskList",
+      JSON.stringify([...taskList, { task, taskDescription }])
+    );
 
     setTask("");
     setTaskDescription("");
   };
 
   const handleEdit = (index) => {
-
     setEditIndex(index);
-
-    
     setTask(taskList[index].task);
     setTaskDescription(taskList[index].taskDescription);
   };
 
   const handleDelete = (index) => {
-  
     const updatedList = [...taskList];
     updatedList.splice(index, 1);
     setTaskList(updatedList);
-
-    
     localStorage.setItem("taskList", JSON.stringify(updatedList));
   };
 
   return (
-
-    <div style={{
-      backgroundImage: `url(${background})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      minHeight: "100vh",
-    }}>
-  <Hero>
-      <h1 class="animate__animated animate__backInLeft ">Welcome to Your Task List!</h1>
-
-      </Hero >
-      <Container style={{ backgroundColor: '#deb887' }}>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }}
+    >
+      <Hero>
+        <h1 class="animate__animated animate__backInLeft ">
+          Welcome to Your Task List!
+        </h1>
+      </Hero>
+      <Container style={{ backgroundColor: "#deb887" }}>
         <Row>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Add/Edit Task:</h2>
-            <div className="form-group" >
-              <label style={{fontSize:"12"}} htmlFor="taskInput">Task:</label>
+            <h2
+              style={{
+                textAlign: "center",
+                backgroundColor: "#deb887",
+                borderRadius: "5px",
+              }}
+            >
+              Add/Edit Task:
+            </h2>
+            <div className="form-group">
+              <label style={{ fontSize: "12" }} htmlFor="taskInput">
+                Task:
+              </label>
               <input
-                style={{fontSize:"12"}}
+                style={{ fontSize: "12" }}
                 type="text"
                 className="form-control"
                 id="taskInput"
@@ -102,37 +104,21 @@ function Task() {
                 onChange={(e) => setTaskDescription(e.target.value)}
               ></textarea>
             </div>
-            <span
-        onClick={handleSave}
-        
-        style={{
-          padding: "5px",
-          border: "2px solid green",
-          borderRadius: "5px",
-          backgroundColor: "#eff0b8",
-          color: "green",
-          cursor: "pointer",
-        }}
-      >
-        Add Entry <FaPlusCircle className="mb-1" />
-      </span>
-            {/* <Button
-              label={editIndex !== null ? "Update" : "Save"}
-              style={{
-                backgroundColor: "#ffe4c4",
-                color: "white",
-                border: "none",
-                padding: "5px 10px",
-                marginLeft: "15px",
-                cursor: "pointer",
-              }}
-              onClick={handleSave}
-              type="primary"
-            /> */}
+            <span onClick={handleSave} className="addEntry-button">
+              Add Entry <FaPlusCircle className="mb-1" />
+            </span>
           </Col>
           <Col size="md-6">
-            <h2 style={{textAlign:"center", backgroundColor:"#deb887",borderRadius:"5px"}}>Task List:</h2>
-            <ul className="list-group" >
+            <h2
+              style={{
+                textAlign: "center",
+                backgroundColor: "#deb887",
+                borderRadius: "5px",
+              }}
+            >
+              Task List:
+            </h2>
+            <ul className="list-group">
               {taskList.map((taskItem, index) => (
                 <ListItem
                   key={index}
