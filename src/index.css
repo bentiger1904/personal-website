@@ -11,3 +11,26 @@ div[data-reactroot] {
   padding: 0;
   margin: 0;
 }
+
+.delete-button {
+  background-color: #db2828;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #e66161;
+}
+
+.addEntry-button {
+  background-color: #acd47f;
+  transition: background-color 0.3s ease;
+  color: green;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid green;
+  border-radius: 5px
+}
+
+.addEntry-button:hover {
+  background-color: #c7f394;
+}

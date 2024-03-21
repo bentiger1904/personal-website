@@ -168,20 +168,12 @@ function List() {
                     {item.calories}
                   </div>
                   <button
-                    style={{ backgroundColor: "#db2828" }}
                     type="button"
-                    className="btn-danger"
+                    className="delete-button"
                     onClick={() => handleDelete(index)}
                   >
                     <FaTrashAlt />
                   </button>
-                  {/* <button
-                    className="btn btn-danger"
-                    style={{ backgroundColor: '#a35a31', borderColor: '#a35a31', color: '#white' }}
-                    onClick={() => handleDelete(index)}
-                  >
-                    Delete
-                  </button> */}
                 </li>
               ))}
             </ul>

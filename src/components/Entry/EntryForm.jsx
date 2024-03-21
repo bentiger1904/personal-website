@@ -61,7 +61,7 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
             required
           />
         </div>
-        {/* <span
+        {/* <button
           className="form-button"
           type="submit"
           style={{
@@ -74,9 +74,9 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
             cursor: "pointer",
           }}
         >
-          {entryToEdit ? "Edit Entry" : "Add Entry"}
+          {entryToEdit ? 'Edit Entry' : 'Add Entry'}
           <FaPlusCircle className="plusCircle" />
-        </span> */}
+        </button> */}
         <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button>
       </form>
     </div>
