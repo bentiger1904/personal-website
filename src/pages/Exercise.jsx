@@ -8,7 +8,6 @@ import Col from "../components/Col";
 import "../index.css";
 import "animate.css";
 import background from "../assets/exerciseBackground.jpeg";
-import DeleteBtn from "../components/DeleteBtn/DeleteBtn";
 
 function WorkoutTrackerApp() {
   function UseLocalStorage(key, initialValue) {
@@ -102,7 +101,6 @@ function WorkoutTrackerApp() {
           <span> miles</span>
         </td>
         <td>
-          {/* <DeleteBtn onClick={() => deleteEntry(index)}/> */}
           <button
             type="button"
             className="delete-button"

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaPlusCircle } from "react-icons/fa";
 import "./index.css";
 
 const EntryForm = ({ onSubmit, entryToEdit }) => {
@@ -61,26 +60,11 @@ const EntryForm = ({ onSubmit, entryToEdit }) => {
             required
           />
         </div>
-        {/* <button
-          className="form-button"
-          type="submit"
-          style={{
-            margin: "20px",
-            padding: "5px",
-            border: "2px solid #a35a31",
-            borderRadius: "5px",
-            backgroundColor: "burlywood",
-            color: "black",
-            cursor: "pointer",
-          }}
-        >
-          {entryToEdit ? 'Edit Entry' : 'Add Entry'}
-          <FaPlusCircle className="plusCircle" />
-        </button> */}
-        <button className="form-button" type="submit">{entryToEdit ? 'Edit Entry' : 'Add Entry'}</button>
+        <button className="form-button" type="submit">
+          {entryToEdit ? "Edit Entry" : "Add Entry"}
+        </button>
       </form>
     </div>
-    
   );
 };
 
