@@ -124,7 +124,7 @@ function WorkoutTrackerApp() {
       }}
     >
       <Hero>
-        <h1 class="animate__animated animate__backInRight">
+        <h1 className="animate__animated animate__backInRight">
           Welcome to Your personal Exercise Tracker!
         </h1>
       </Hero>

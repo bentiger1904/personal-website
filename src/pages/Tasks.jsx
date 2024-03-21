@@ -65,7 +65,7 @@ function Task() {
       }}
     >
       <Hero>
-        <h1 class="animate__animated animate__backInLeft ">
+        <h1 className="animate__animated animate__backInLeft ">
           Welcome to Your Task List!
         </h1>
       </Hero>

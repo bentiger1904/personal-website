@@ -71,7 +71,7 @@ function List() {
       }}
     >
       <Hero>
-        <h1 class="animate__animated animate__zoomIn">
+        <h1 className="animate__animated animate__zoomIn">
           Welcome to Your Food Log!
         </h1>
       </Hero>

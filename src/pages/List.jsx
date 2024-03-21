@@ -64,7 +64,7 @@ function List() {
       }}
     >
       <Hero>
-        <h1 class="animate__animated animate__backInUp">
+        <h1 className="animate__animated animate__backInUp">
           Welcome to Your personal Shopping List!
         </h1>
       </Hero>
